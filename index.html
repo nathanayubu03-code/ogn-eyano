@@ -2024,10 +2024,27 @@
 
   function submitEmail(e) {
     e.preventDefault();
+    const prefix = document.getElementById('emailPrefix')?.value || '';
+    const data = {
+      type: 'Demande Email',
+      email_demande: prefix + '@eyano.org',
+      type_email: document.getElementById('emailType')?.value || '',
+      province: e.target.querySelectorAll('select')[1]?.value || '',
+      responsable: e.target.querySelectorAll('input[type="text"]')[1]?.value || '',
+      telephone: e.target.querySelector('input[type="tel"]')?.value || '',
+      email_actuel: e.target.querySelector('input[type="email"]')?.value || '',
+      justification: e.target.querySelector('textarea')?.value || ''
+    };
+    sendToSheets(data);
     const btn = e.target.querySelector('button[type=submit]');
     btn.innerHTML = '<i class="fas fa-check-circle"></i> Demande envoyée !';
     btn.style.background = 'linear-gradient(135deg,#16a34a,#22c55e)';
-    setTimeout(() => { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Soumettre la demande'; btn.style.background = ''; e.target.reset(); updateEmailPreview(); }, 4000);
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Soumettre la demande';
+      btn.style.background = '';
+      e.target.reset();
+      updateEmailPreview();
+    }, 4000);
   }
 
   // CENTRES PAR PROVINCE (données d'exemple)
