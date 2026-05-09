@@ -52,7 +52,9 @@
     background:linear-gradient(135deg,var(--blue-light),var(--green));
     display:flex; align-items:center; justify-content:center;
     font-weight:900; color:white; font-size:18px; letter-spacing:-1px;
+    overflow:hidden; padding:2px;
   }
+  .logo-icon img { width:100%; height:100%; object-fit:contain; border-radius:10px; }
   .logo-text { color:white; }
   .logo-text strong { display:block; font-size:18px; font-weight:800; letter-spacing:1px; }
   .logo-text span { font-size:11px; opacity:0.75; letter-spacing:0.5px; }
@@ -636,7 +638,7 @@
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="logo">
-      <div class="logo-icon">OE</div>
+      <div class="logo-icon"><img src="https://res.cloudinary.com/duftnlqvx/image/upload/f_auto,q_auto/eyanoooo_ftcmke" alt="Logo OGN EYANO"></div>
       <div class="logo-text">
         <strong>OGN EYANO</strong>
         <span>Formation Professionnelle · RDC</span>
@@ -674,6 +676,9 @@
 <section class="hero" id="accueil">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1;">
+    <img src="https://res.cloudinary.com/duftnlqvx/image/upload/f_auto,q_auto/eyanoooo_ftcmke" alt="" style="width:55%;max-width:700px;opacity:0.06;object-fit:contain;">
+  </div>
   <div class="hero-content">
     <div class="hero-text">
       <div class="hero-badge fade-up">
@@ -782,33 +787,8 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap fade-up">
-        <div class="about-img-main">
-          <!-- Illustration professionnelle à la place d'une photo -->
-          <svg viewBox="0 0 400 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#1a3a6b"/>
-                <stop offset="100%" style="stop-color:#16a34a"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="300" fill="url(#bg1)"/>
-            <!-- Building/school illustration -->
-            <rect x="80" y="120" width="240" height="140" fill="rgba(255,255,255,0.15)" rx="4"/>
-            <rect x="80" y="100" width="240" height="30" fill="rgba(255,255,255,0.25)" rx="4"/>
-            <rect x="160" y="180" width="80" height="80" fill="rgba(255,255,255,0.2)" rx="4"/>
-            <rect x="100" y="150" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="3"/>
-            <rect x="250" y="150" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="3"/>
-            <!-- People -->
-            <circle cx="130" cy="90" r="18" fill="rgba(255,255,255,0.3)"/>
-            <circle cx="200" cy="85" r="22" fill="rgba(255,255,255,0.35)"/>
-            <circle cx="270" cy="90" r="18" fill="rgba(255,255,255,0.3)"/>
-            <text x="200" y="60" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="14" font-family="Inter,sans-serif" font-weight="700">OGN EYANO</text>
-            <text x="200" y="78" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="Inter,sans-serif">Formation Professionnelle · RDC</text>
-            <!-- Stars -->
-            <text x="60" y="50" fill="#f0c040" font-size="16">★</text>
-            <text x="320" y="50" fill="#f0c040" font-size="16">★</text>
-            <text x="190" y="35" fill="#f0c040" font-size="16">★</text>
-          </svg>
+        <div class="about-img-main" style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));display:flex;align-items:center;justify-content:center;padding:40px;">
+          <img src="https://res.cloudinary.com/duftnlqvx/image/upload/f_auto,q_auto/eyanoooo_ftcmke" alt="Logo OGN EYANO" style="width:100%;max-width:320px;height:auto;object-fit:contain;filter:drop-shadow(0 8px 32px rgba(0,0,0,0.4));">
         </div>
         <div class="about-badge-float">
           <strong>2015</strong>
@@ -1788,7 +1768,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="logo">
-          <div class="logo-icon">OE</div>
+          <div class="logo-icon"><img src="https://res.cloudinary.com/duftnlqvx/image/upload/f_auto,q_auto/eyanoooo_ftcmke" alt="Logo OGN EYANO"></div>
           <div class="logo-text">
             <strong>OGN EYANO</strong>
             <span>Formation Professionnelle · RDC</span>
