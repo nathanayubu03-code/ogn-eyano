@@ -1333,11 +1333,11 @@
           <div class="email-preview-live" id="emailLivePreview">votre-identifiant@eyano.org</div>
           <div class="form-group">
             <label>Nom complet du responsable *</label>
-            <input type="text" placeholder="Nom et prénom" required>
+            <input type="text" id="emailResponsable" placeholder="Nom et prénom" required>
           </div>
           <div class="form-group">
             <label>Province *</label>
-            <select required>
+            <select id="emailProvince" required>
               <option value="">Sélectionner...</option>
               <option>Kinshasa</option><option>Kongo Central</option><option>Nord-Kivu</option>
               <option>Sud-Kivu</option><option>Haut-Katanga</option><option>Ituri</option>
@@ -1352,15 +1352,15 @@
           </div>
           <div class="form-group">
             <label>Email actuel (pour recevoir les identifiants) *</label>
-            <input type="email" placeholder="votre.email.actuel@exemple.com" required>
+            <input type="email" id="emailActuel" placeholder="votre.email.actuel@exemple.com" required>
           </div>
           <div class="form-group">
             <label>Téléphone *</label>
-            <input type="tel" placeholder="+243 9XX XXX XXX" required>
+            <input type="tel" id="emailTel" placeholder="+243 9XX XXX XXX" required>
           </div>
           <div class="form-group">
             <label>Justification / Raison de la demande</label>
-            <textarea placeholder="Expliquez pourquoi vous avez besoin de cet email..." style="min-height:80px"></textarea>
+            <textarea id="emailJustif" placeholder="Expliquez pourquoi vous avez besoin de cet email..." style="min-height:80px"></textarea>
           </div>
           <button type="submit" class="btn-primary form-submit"><i class="fas fa-paper-plane"></i> Soumettre la demande</button>
         </form>
@@ -2029,11 +2029,11 @@
       type: 'Demande Email',
       email_demande: prefix + '@eyano.org',
       type_email: document.getElementById('emailType')?.value || '',
-      province: e.target.querySelectorAll('select')[1]?.value || '',
-      responsable: e.target.querySelectorAll('input[type="text"]')[1]?.value || '',
-      telephone: e.target.querySelector('input[type="tel"]')?.value || '',
-      email_actuel: e.target.querySelector('input[type="email"]')?.value || '',
-      justification: e.target.querySelector('textarea')?.value || ''
+      responsable: document.getElementById('emailResponsable')?.value || '',
+      province: document.getElementById('emailProvince')?.value || '',
+      email_actuel: document.getElementById('emailActuel')?.value || '',
+      telephone: document.getElementById('emailTel')?.value || '',
+      justification: document.getElementById('emailJustif')?.value || ''
     };
     sendToSheets(data);
     const btn = e.target.querySelector('button[type=submit]');
