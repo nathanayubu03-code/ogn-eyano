@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="OGN EYANO - Organisation Non Gouvernementale conventionnée accompagnant les centres de formation professionnelle en République Démocratique du Congo">
+<meta name="keywords" content="OGN EYANO, formation professionnelle, RDC, Congo, centres de formation, ONG">
+<title>OGN EYANO | Formation Professionnelle en RDC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --blue: #1a3a6b;
+    --blue-light: #2563eb;
+    --blue-dark: #0f2347;
+    --green: #16a34a;
+    --green-light: #22c55e;
+    --gold: #d4a017;
+    --gold-light: #f0c040;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --shadow: 0 4px 24px rgba(26,58,107,0.10);
+    --shadow-lg: 0 8px 40px rgba(26,58,107,0.18);
+    --radius: 16px;
+    --radius-sm: 8px;
+    --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Inter',sans-serif; color:var(--gray-800); background:var(--white); overflow-x:hidden; }
+
+  /* NAVBAR */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    background:rgba(15,35,71,0.97); backdrop-filter:blur(12px);
+    box-shadow:0 2px 20px rgba(0,0,0,0.3);
+    transition:var(--transition);
+  }
+  .nav-inner {
+    max-width:1280px; margin:0 auto; padding:0 24px;
+    display:flex; align-items:center; justify-content:space-between; height:72px;
+  }
+  .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .logo-icon {
+    width:48px; height:48px; border-radius:12px;
+    background:linear-gradient(135deg,var(--blue-light),var(--green));
+    display:flex; align-items:center; justify-content:center;
+    font-weight:900; color:white; font-size:18px; letter-spacing:-1px;
+  }
+  .logo-text { color:white; }
+  .logo-text strong { display:block; font-size:18px; font-weight:800; letter-spacing:1px; }
+  .logo-text span { font-size:11px; opacity:0.75; letter-spacing:0.5px; }
+  .nav-links { display:flex; align-items:center; gap:8px; list-style:none; }
+  .nav-links a {
+    color:rgba(255,255,255,0.85); text-decoration:none; font-size:14px;
+    font-weight:500; padding:8px 14px; border-radius:8px; transition:var(--transition);
+  }
+  .nav-links a:hover { color:white; background:rgba(255,255,255,0.12); }
+  .nav-links .btn-nav {
+    background:linear-gradient(135deg,var(--blue-light),var(--green));
+    color:white; padding:9px 20px; border-radius:10px; font-weight:600;
+  }
+  .nav-links .btn-nav:hover { opacity:0.9; transform:translateY(-1px); }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; }
+  .hamburger span { width:24px; height:2px; background:white; border-radius:2px; transition:var(--transition); }
+
+  /* HERO */
+  .hero {
+    min-height:100vh; position:relative; overflow:hidden;
+    display:flex; align-items:center;
+    background:linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 50%, #1e4d8c 100%);
+  }
+  .hero-bg {
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(37,99,235,0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(22,163,74,0.2) 0%, transparent 40%),
+      radial-gradient(circle at 60% 80%, rgba(212,160,23,0.15) 0%, transparent 40%);
+  }
+  .hero-grid {
+    position:absolute; inset:0; opacity:0.06;
+    background-image: linear-gradient(rgba(255,255,255,0.3) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,0.3) 1px,transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    max-width:1280px; margin:0 auto; padding:120px 24px 80px;
+    display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; width:100%;
+    position:relative; z-index:2;
+  }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2);
+    color:rgba(255,255,255,0.9); padding:8px 16px; border-radius:50px;
+    font-size:13px; font-weight:500; margin-bottom:24px; backdrop-filter:blur(8px);
+  }
+  .hero-badge i { color:var(--gold-light); }
+  .hero h1 {
+    font-family:'Playfair Display',serif; font-size:clamp(2.2rem,4vw,3.4rem);
+    font-weight:800; color:white; line-height:1.15; margin-bottom:24px;
+  }
+  .hero h1 span { color:var(--gold-light); }
+  .hero p {
+    color:rgba(255,255,255,0.8); font-size:1.1rem; line-height:1.8;
+    margin-bottom:40px; max-width:520px;
+  }
+  .hero-btns { display:flex; flex-wrap:wrap; gap:16px; }
+  .btn-primary {
+    background:linear-gradient(135deg,var(--blue-light),var(--green));
+    color:white; padding:14px 28px; border-radius:12px; font-weight:700;
+    font-size:15px; text-decoration:none; display:inline-flex; align-items:center;
+    gap:8px; box-shadow:0 4px 20px rgba(37,99,235,0.4); transition:var(--transition);
+    border:none; cursor:pointer;
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(37,99,235,0.5); }
+  .btn-secondary {
+    background:rgba(255,255,255,0.12); border:2px solid rgba(255,255,255,0.3);
+    color:white; padding:12px 28px; border-radius:12px; font-weight:600;
+    font-size:15px; text-decoration:none; display:inline-flex; align-items:center;
+    gap:8px; transition:var(--transition); backdrop-filter:blur(8px);
+  }
+  .btn-secondary:hover { background:rgba(255,255,255,0.2); border-color:rgba(255,255,255,0.5); }
+  .btn-gold {
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    color:var(--blue-dark); padding:12px 28px; border-radius:12px; font-weight:700;
+    font-size:15px; text-decoration:none; display:inline-flex; align-items:center;
+    gap:8px; box-shadow:0 4px 20px rgba(212,160,23,0.4); transition:var(--transition);
+  }
+  .btn-gold:hover { transform:translateY(-2px); }
+
+  /* DRC MAP SVG */
+  .hero-map {
+    position:relative; display:flex; align-items:center; justify-content:center;
+  }
+  .map-container {
+    position:relative; width:100%; max-width:480px;
+    animation: floatMap 6s ease-in-out infinite;
+  }
+  @keyframes floatMap {
+    0%,100% { transform:translateY(0px); }
+    50% { transform:translateY(-12px); }
+  }
+  .map-glow {
+    position:absolute; inset:-20px;
+    background:radial-gradient(circle,rgba(37,99,235,0.25) 0%,transparent 70%);
+    border-radius:50%; animation:pulseGlow 3s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%,100% { opacity:0.5; transform:scale(1); }
+    50% { opacity:1; transform:scale(1.05); }
+  }
+  .map-svg { width:100%; height:auto; filter:drop-shadow(0 20px 40px rgba(0,0,0,0.4)); }
+  .province-dot {
+    position:absolute; width:12px; height:12px; border-radius:50%;
+    background:var(--gold-light); border:2px solid white;
+    box-shadow:0 0 0 4px rgba(240,192,64,0.3);
+    animation:dotPulse 2s ease-in-out infinite;
+    cursor:pointer;
+  }
+  @keyframes dotPulse {
+    0%,100% { box-shadow:0 0 0 4px rgba(240,192,64,0.3); }
+    50% { box-shadow:0 0 0 8px rgba(240,192,64,0.1); }
+  }
+  .map-stats {
+    position:absolute; background:rgba(255,255,255,0.95);
+    border-radius:12px; padding:10px 16px; box-shadow:var(--shadow-lg);
+    font-size:12px; font-weight:600; color:var(--blue-dark); white-space:nowrap;
+  }
+  .map-stats span { color:var(--green); font-size:16px; font-weight:800; display:block; }
+
+  /* SECTION GENERIC */
+  section { padding:100px 0; }
+  .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+  .section-header { text-align:center; margin-bottom:64px; }
+  .section-tag {
+    display:inline-block; background:rgba(37,99,235,0.1); color:var(--blue-light);
+    padding:6px 16px; border-radius:50px; font-size:13px; font-weight:600;
+    margin-bottom:16px; border:1px solid rgba(37,99,235,0.2);
+  }
+  .section-title {
+    font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.6rem);
+    font-weight:800; color:var(--blue-dark); line-height:1.2; margin-bottom:16px;
+  }
+  .section-title span { color:var(--green); }
+  .section-sub { color:var(--gray-600); font-size:1.05rem; line-height:1.8; max-width:600px; margin:0 auto; }
+
+  /* STATS */
+  .stats-section { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); padding:80px 0; }
+  .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+  .stat-card {
+    text-align:center; padding:48px 24px;
+    background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+    transition:var(--transition); position:relative; overflow:hidden;
+  }
+  .stat-card::before {
+    content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+    width:60px; height:3px; background:linear-gradient(90deg,var(--blue-light),var(--green));
+    border-radius:2px; opacity:0; transition:var(--transition);
+  }
+  .stat-card:hover { background:rgba(255,255,255,0.1); }
+  .stat-card:hover::before { opacity:1; }
+  .stat-icon { font-size:2rem; margin-bottom:16px; }
+  .stat-num { font-size:3rem; font-weight:900; color:white; line-height:1; margin-bottom:8px; }
+  .stat-num span { color:var(--gold-light); }
+  .stat-label { color:rgba(255,255,255,0.7); font-size:14px; font-weight:500; }
+
+  /* ABOUT */
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .about-img-wrap { position:relative; }
+  .about-img-main {
+    width:100%; aspect-ratio:4/3; border-radius:var(--radius);
+    background:linear-gradient(135deg,var(--blue),var(--green));
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden; box-shadow:var(--shadow-lg);
+  }
+  .about-img-main img { width:100%; height:100%; object-fit:cover; }
+  .about-badge-float {
+    position:absolute; bottom:-20px; right:-20px;
+    background:white; border-radius:var(--radius); padding:20px 24px;
+    box-shadow:var(--shadow-lg); border-left:4px solid var(--green);
+  }
+  .about-badge-float strong { display:block; font-size:2rem; color:var(--green); font-weight:900; }
+  .about-badge-float span { font-size:13px; color:var(--gray-600); }
+  .about-values { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px; }
+  .value-item {
+    display:flex; align-items:center; gap:10px; background:var(--gray-50);
+    padding:12px 16px; border-radius:10px; font-size:14px; font-weight:500;
+    color:var(--gray-700); transition:var(--transition);
+  }
+  .value-item:hover { background:rgba(37,99,235,0.07); color:var(--blue); }
+  .value-item i { color:var(--green); width:18px; }
+
+  /* CENTRES */
+  .centres-section { background:var(--gray-50); }
+  .search-bar {
+    display:flex; gap:12px; max-width:720px; margin:0 auto 48px;
+    background:white; padding:8px; border-radius:16px; box-shadow:var(--shadow);
+  }
+  .search-bar select, .search-bar input {
+    flex:1; padding:12px 16px; border:none; outline:none; font-size:14px;
+    font-family:'Inter',sans-serif; color:var(--gray-700); background:var(--gray-50);
+    border-radius:10px;
+  }
+  .search-bar button {
+    background:linear-gradient(135deg,var(--blue-light),var(--green));
+    color:white; border:none; padding:12px 24px; border-radius:10px;
+    font-weight:600; cursor:pointer; font-size:14px; transition:var(--transition);
+    display:flex; align-items:center; gap:8px;
+  }
+  .search-bar button:hover { opacity:0.9; }
+  .centres-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .centre-card {
+    background:white; border-radius:var(--radius); overflow:hidden;
+    box-shadow:var(--shadow); transition:var(--transition); border:1px solid var(--gray-200);
+  }
+  .centre-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+  .centre-img {
+    height:180px; background:linear-gradient(135deg,var(--blue),var(--green));
+    display:flex; align-items:center; justify-content:center; font-size:3rem; color:white;
+    position:relative; overflow:hidden;
+  }
+  .centre-badge {
+    position:absolute; top:12px; right:12px;
+    background:var(--green); color:white; padding:4px 10px; border-radius:20px;
+    font-size:11px; font-weight:600;
+  }
+  .centre-body { padding:20px; }
+  .centre-prov {
+    font-size:11px; font-weight:700; color:var(--blue-light); letter-spacing:1px;
+    text-transform:uppercase; margin-bottom:8px; display:flex; align-items:center; gap:6px;
+  }
+  .centre-name { font-size:1rem; font-weight:700; color:var(--blue-dark); margin-bottom:8px; line-height:1.3; }
+  .centre-info { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--gray-600); margin-bottom:4px; }
+  .centre-info i { width:16px; color:var(--green); }
+  .centre-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .tag {
+    background:rgba(37,99,235,0.08); color:var(--blue-light); padding:3px 10px;
+    border-radius:20px; font-size:11px; font-weight:600;
+  }
+  .centre-footer { padding:16px 20px; border-top:1px solid var(--gray-100); display:flex; justify-content:space-between; align-items:center; }
+  .btn-sm {
+    padding:8px 16px; border-radius:8px; font-size:13px; font-weight:600;
+    text-decoration:none; transition:var(--transition); display:inline-flex; align-items:center; gap:6px;
+  }
+  .btn-sm-blue { background:var(--blue); color:white; }
+  .btn-sm-blue:hover { background:var(--blue-light); }
+  .btn-sm-outline { border:1.5px solid var(--blue-light); color:var(--blue-light); background:transparent; }
+  .btn-sm-outline:hover { background:var(--blue-light); color:white; }
+
+  /* INSCRIPTION */
+  .inscription-section { background:linear-gradient(135deg,var(--blue-dark),var(--blue)); }
+  .inscription-inner {
+    display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;
+  }
+  .inscription-text h2 { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:800; color:white; margin-bottom:20px; }
+  .inscription-text p { color:rgba(255,255,255,0.8); line-height:1.8; margin-bottom:32px; }
+  .inscription-steps { list-style:none; }
+  .inscription-steps li {
+    display:flex; align-items:flex-start; gap:16px; margin-bottom:20px; color:rgba(255,255,255,0.85);
+  }
+  .step-num {
+    min-width:36px; height:36px; border-radius:50%;
+    background:linear-gradient(135deg,var(--blue-light),var(--green));
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; color:white;
+  }
+  .form-card { background:white; border-radius:var(--radius); padding:40px; box-shadow:var(--shadow-lg); }
+  .form-card h3 { font-size:1.3rem; font-weight:700; color:var(--blue-dark); margin-bottom:24px; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .form-group { margin-bottom:16px; }
+  .form-group label { display:block; font-size:13px; font-weight:600; color:var(--gray-700); margin-bottom:6px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width:100%; padding:12px 16px; border:1.5px solid var(--gray-200); border-radius:10px;
+    font-size:14px; font-family:'Inter',sans-serif; color:var(--gray-800); transition:var(--transition);
+    outline:none; background:var(--gray-50);
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color:var(--blue-light); background:white; box-shadow:0 0 0 3px rgba(37,99,235,0.1);
+  }
+  .form-group textarea { resize:vertical; min-height:80px; }
+  .form-submit { width:100%; padding:14px; font-size:15px; border:none; cursor:pointer; }
+
+  /* TEMOIGNAGES */
+  .temoignages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .temoignage-card {
+    background:white; border-radius:var(--radius); padding:32px; box-shadow:var(--shadow);
+    border:1px solid var(--gray-200); transition:var(--transition); position:relative;
+  }
+  .temoignage-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+  .temo-quote { font-size:3rem; color:var(--blue-light); line-height:1; margin-bottom:16px; font-family:serif; }
+  .temo-text { color:var(--gray-600); line-height:1.8; font-size:0.95rem; margin-bottom:24px; font-style:italic; }
+  .temo-author { display:flex; align-items:center; gap:14px; }
+  .temo-avatar {
+    width:48px; height:48px; border-radius:50%;
+    background:linear-gradient(135deg,var(--blue-light),var(--green));
+    display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:18px;
+  }
+  .temo-name { font-weight:700; color:var(--blue-dark); font-size:14px; }
+  .temo-role { font-size:12px; color:var(--gray-600); }
+  .temo-stars { color:var(--gold); font-size:13px; margin-bottom:4px; }
+
+  /* ACTUALITES */
+  .actualites-section { background:var(--gray-50); }
+  .actu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .actu-card {
+    background:white; border-radius:var(--radius); overflow:hidden;
+    box-shadow:var(--shadow); transition:var(--transition); border:1px solid var(--gray-200);
+  }
+  .actu-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+  .actu-img {
+    height:200px; display:flex; align-items:center; justify-content:center;
+    font-size:3rem; position:relative; overflow:hidden;
+  }
+  .actu-img-1 { background:linear-gradient(135deg,#1e40af,#3b82f6); }
+  .actu-img-2 { background:linear-gradient(135deg,#065f46,#10b981); }
+  .actu-img-3 { background:linear-gradient(135deg,#92400e,#f59e0b); }
+  .actu-cat {
+    position:absolute; bottom:12px; left:12px;
+    background:rgba(0,0,0,0.6); color:white; padding:4px 10px;
+    border-radius:6px; font-size:11px; font-weight:600; backdrop-filter:blur(4px);
+  }
+  .actu-body { padding:24px; }
+  .actu-date { font-size:12px; color:var(--gray-600); margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+  .actu-title { font-size:1rem; font-weight:700; color:var(--blue-dark); line-height:1.4; margin-bottom:12px; }
+  .actu-excerpt { font-size:14px; color:var(--gray-600); line-height:1.7; margin-bottom:16px; }
+  .actu-link { font-size:13px; font-weight:600; color:var(--blue-light); text-decoration:none; display:flex; align-items:center; gap:6px; transition:var(--transition); }
+  .actu-link:hover { gap:10px; }
+
+  /* PARTENAIRES */
+  .partners-section { padding:60px 0; }
+  .partners-title { text-align:center; font-size:14px; font-weight:600; color:var(--gray-600); letter-spacing:2px; text-transform:uppercase; margin-bottom:40px; }
+  .partners-row { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:40px; }
+  .partner-item {
+    display:flex; align-items:center; gap:10px; padding:16px 28px;
+    background:var(--gray-50); border-radius:12px; border:1px solid var(--gray-200);
+    transition:var(--transition); cursor:pointer;
+  }
+  .partner-item:hover { background:white; box-shadow:var(--shadow); border-color:var(--blue-light); }
+  .partner-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+  .partner-name { font-weight:700; font-size:14px; color:var(--gray-700); }
+
+  /* PROVINCES MAP */
+  .provinces-section { background:var(--blue-dark); padding:80px 0; }
+  .provinces-section .section-title { color:white; }
+  .provinces-section .section-sub { color:rgba(255,255,255,0.7); }
+  .provinces-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:48px; }
+  .province-item {
+    background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:12px;
+    transition:var(--transition); cursor:pointer;
+  }
+  .province-item:hover { background:rgba(255,255,255,0.15); border-color:var(--gold-light); }
+  .province-dot-sm { width:10px; height:10px; border-radius:50%; background:var(--green-light); flex-shrink:0; }
+  .province-name { font-size:14px; color:rgba(255,255,255,0.85); font-weight:500; }
+  .province-count { font-size:12px; color:var(--gold-light); font-weight:600; margin-left:auto; }
+
+  /* CONTACT */
+  .contact-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:60px; align-items:start; }
+  .contact-info h3 { font-size:1.5rem; font-weight:700; color:var(--blue-dark); margin-bottom:16px; }
+  .contact-info p { color:var(--gray-600); line-height:1.8; margin-bottom:32px; }
+  .contact-items { display:flex; flex-direction:column; gap:20px; }
+  .contact-item {
+    display:flex; align-items:flex-start; gap:16px; padding:20px;
+    background:var(--gray-50); border-radius:14px; border:1px solid var(--gray-200);
+  }
+  .contact-ic {
+    width:44px; height:44px; border-radius:12px;
+    background:linear-gradient(135deg,var(--blue-light),var(--green));
+    display:flex; align-items:center; justify-content:center; color:white;
+    font-size:1rem; flex-shrink:0;
+  }
+  .contact-item strong { display:block; font-size:14px; color:var(--blue-dark); font-weight:700; margin-bottom:4px; }
+  .contact-item span { font-size:13px; color:var(--gray-600); }
+  .contact-form { background:white; border-radius:var(--radius); padding:40px; box-shadow:var(--shadow); }
+  .contact-form h3 { font-size:1.3rem; font-weight:700; color:var(--blue-dark); margin-bottom:24px; }
+  .socials { display:flex; gap:12px; margin-top:24px; }
+  .social-btn {
+    width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; color:white; text-decoration:none; transition:var(--transition);
+  }
+  .social-btn:hover { transform:translateY(-3px); }
+  .fb { background:#1877f2; } .wa { background:#25d366; } .yt { background:#ff0000; }
+  .tt { background:#010101; } .li { background:#0a66c2; }
+
+  /* FOOTER */
+  footer { background:var(--blue-dark); color:white; padding:80px 0 0; }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:60px; }
+  .footer-brand .logo-text strong, .footer-brand .logo-text span { color:white; }
+  .footer-desc { color:rgba(255,255,255,0.65); font-size:14px; line-height:1.8; margin:16px 0 24px; }
+  .footer-col h4 { color:white; font-size:15px; font-weight:700; margin-bottom:20px; position:relative; padding-bottom:10px; }
+  .footer-col h4::after { content:''; position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--green-light); border-radius:1px; }
+  .footer-links { list-style:none; }
+  .footer-links li { margin-bottom:10px; }
+  .footer-links a { color:rgba(255,255,255,0.65); text-decoration:none; font-size:14px; transition:var(--transition); display:flex; align-items:center; gap:8px; }
+  .footer-links a:hover { color:var(--gold-light); }
+  .footer-links a i { font-size:11px; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.1); padding:24px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .footer-bottom p { color:rgba(255,255,255,0.55); font-size:13px; }
+  .footer-bottom-links { display:flex; gap:24px; }
+  .footer-bottom-links a { color:rgba(255,255,255,0.55); font-size:13px; text-decoration:none; transition:var(--transition); }
+  .footer-bottom-links a:hover { color:white; }
+
+  /* SCROLL TO TOP */
+  .scroll-top {
+    position:fixed; bottom:32px; right:32px; width:48px; height:48px;
+    background:linear-gradient(135deg,var(--blue-light),var(--green));
+    color:white; border:none; border-radius:12px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+    box-shadow:var(--shadow-lg); transition:var(--transition); z-index:999;
+    opacity:0; pointer-events:none;
+  }
+  .scroll-top.visible { opacity:1; pointer-events:auto; }
+  .scroll-top:hover { transform:translateY(-3px); }
+
+  /* WHATSAPP FLOAT */
+  .whatsapp-float {
+    position:fixed; bottom:32px; left:32px;
+    background:#25d366; color:white; width:56px; height:56px;
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem; text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,0.4);
+    transition:var(--transition); z-index:999;
+    animation:waBounce 2s ease-in-out infinite;
+  }
+  @keyframes waBounce {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-6px); }
+  }
+  .whatsapp-float:hover { transform:scale(1.1); animation:none; }
+
+  /* ANIMATIONS */
+  .fade-up { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
+  .delay-1 { transition-delay:0.1s; }
+  .delay-2 { transition-delay:0.2s; }
+  .delay-3 { transition-delay:0.3s; }
+
+  /* MOBILE NAV */
+  .mobile-menu {
+    display:none; position:fixed; top:72px; left:0; right:0; z-index:999;
+    background:var(--blue-dark); padding:20px; flex-direction:column; gap:8px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.3);
+  }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a { color:rgba(255,255,255,0.85); text-decoration:none; padding:12px 16px; border-radius:10px; font-weight:500; transition:var(--transition); }
+  .mobile-menu a:hover { background:rgba(255,255,255,0.1); color:white; }
+
+  /* PROVINCE EMAILS */
+  .prov-emails-section { background:var(--gray-50); }
+  .prov-emails-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:48px; }
+  .prov-email-card {
+    background:white; border-radius:14px; padding:18px 16px;
+    border:1.5px solid var(--gray-200); transition:var(--transition);
+    display:flex; flex-direction:column; gap:8px; box-shadow:var(--shadow);
+  }
+  .prov-email-card:hover { border-color:var(--blue-light); transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+  .prov-email-card .prov-flag {
+    width:36px; height:36px; border-radius:10px;
+    background:linear-gradient(135deg,var(--blue-light),var(--green));
+    display:flex; align-items:center; justify-content:center; color:white; font-size:14px;
+  }
+  .prov-email-card .prov-name { font-size:13px; font-weight:700; color:var(--blue-dark); }
+  .prov-email-card .prov-addr {
+    font-size:12px; color:var(--blue-light); font-weight:600;
+    background:rgba(37,99,235,0.07); padding:5px 10px; border-radius:6px;
+    word-break:break-all;
+  }
+  .prov-email-card .prov-copy {
+    font-size:11px; color:var(--gray-600); cursor:pointer; display:flex; align-items:center; gap:4px;
+    transition:var(--transition);
+  }
+  .prov-email-card .prov-copy:hover { color:var(--green); }
+
+  /* EMAIL CREATION */
+  .email-creation-section { background:linear-gradient(135deg,#0f2347,#1a3a6b); }
+  .email-creation-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .email-preview-box {
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+    border-radius:var(--radius); padding:32px; margin-top:24px;
+  }
+  .email-preview-row {
+    display:flex; align-items:center; gap:12px; padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .email-preview-row:last-child { border-bottom:none; }
+  .email-dot { width:8px; height:8px; border-radius:50%; background:var(--green-light); }
+  .email-preview-addr { font-size:13px; color:rgba(255,255,255,0.85); font-family:monospace; }
+  .email-type-badge {
+    margin-left:auto; font-size:10px; padding:2px 8px; border-radius:20px;
+    background:rgba(22,163,74,0.25); color:var(--green-light); font-weight:600;
+  }
+  .email-form-card { background:white; border-radius:var(--radius); padding:36px; }
+  .email-form-card h3 { font-size:1.2rem; font-weight:700; color:var(--blue-dark); margin-bottom:8px; }
+  .email-form-card p { font-size:13px; color:var(--gray-600); margin-bottom:24px; }
+  .email-preview-live {
+    background:rgba(37,99,235,0.07); border:1.5px solid rgba(37,99,235,0.2);
+    border-radius:10px; padding:12px 16px; margin:16px 0;
+    font-family:monospace; font-size:14px; color:var(--blue-dark); font-weight:700;
+    min-height:44px; display:flex; align-items:center;
+  }
+
+  /* STUDENT REGISTRATION */
+  .student-reg-section { background:var(--gray-50); }
+  .student-form-wrap { background:white; border-radius:var(--radius); box-shadow:var(--shadow-lg); overflow:hidden; }
+  .student-form-header {
+    background:linear-gradient(135deg,var(--blue),var(--green));
+    padding:32px 40px; color:white;
+  }
+  .student-form-header h3 { font-size:1.5rem; font-weight:800; margin-bottom:8px; }
+  .student-form-header p { opacity:0.85; font-size:14px; }
+  .student-form-body { padding:40px; }
+  .form-section-title {
+    font-size:14px; font-weight:700; color:var(--blue-dark); letter-spacing:0.5px;
+    text-transform:uppercase; margin:24px 0 16px; padding-bottom:8px;
+    border-bottom:2px solid var(--gray-100); display:flex; align-items:center; gap:8px;
+  }
+  .form-section-title i { color:var(--blue-light); }
+  .form-row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .filieres-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+  .filiere-tag {
+    padding:6px 14px; border-radius:20px; font-size:13px; font-weight:500;
+    background:var(--gray-100); color:var(--gray-700); cursor:pointer;
+    border:1.5px solid transparent; transition:var(--transition);
+  }
+  .filiere-tag:hover, .filiere-tag.selected {
+    background:rgba(37,99,235,0.1); border-color:var(--blue-light); color:var(--blue-light);
+  }
+  .steps-progress {
+    display:flex; align-items:center; gap:0; margin-bottom:32px;
+  }
+  .step-dot {
+    width:36px; height:36px; border-radius:50%; background:var(--gray-200);
+    display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700;
+    color:var(--gray-600); flex-shrink:0; transition:var(--transition);
+  }
+  .step-dot.active { background:var(--blue-light); color:white; }
+  .step-dot.done { background:var(--green); color:white; }
+  .step-line { flex:1; height:2px; background:var(--gray-200); transition:var(--transition); }
+  .step-line.done { background:var(--green); }
+  .step-label { font-size:11px; color:var(--gray-600); margin-top:4px; text-align:center; }
+  .form-step { display:none; }
+  .form-step.active { display:block; }
+  .nav-btns { display:flex; justify-content:space-between; margin-top:32px; gap:12px; }
+  .btn-prev { background:var(--gray-100); color:var(--gray-700); padding:12px 24px; border-radius:10px; border:none; font-weight:600; cursor:pointer; transition:var(--transition); }
+  .btn-prev:hover { background:var(--gray-200); }
+  .btn-next { background:linear-gradient(135deg,var(--blue-light),var(--green)); color:white; padding:12px 28px; border-radius:10px; border:none; font-weight:700; cursor:pointer; transition:var(--transition); }
+  .btn-next:hover { opacity:0.9; }
+  .success-box { text-align:center; padding:40px; }
+  .success-box i { font-size:4rem; color:var(--green); margin-bottom:16px; }
+  .success-box h3 { font-size:1.5rem; font-weight:800; color:var(--blue-dark); margin-bottom:8px; }
+  .success-box p { color:var(--gray-600); }
+
+  /* RESPONSIVE */
+  @media (max-width:1024px) {
+    .hero-content { grid-template-columns:1fr; gap:48px; }
+    .hero-map { display:none; }
+    .about-grid { grid-template-columns:1fr; gap:48px; }
+    .centres-grid { grid-template-columns:repeat(2,1fr); }
+    .temoignages-grid { grid-template-columns:repeat(2,1fr); }
+    .actu-grid { grid-template-columns:repeat(2,1fr); }
+    .stats-grid { grid-template-columns:repeat(2,1fr); }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+    .inscription-inner { grid-template-columns:1fr; }
+    .contact-grid { grid-template-columns:1fr; }
+    .provinces-grid { grid-template-columns:repeat(3,1fr); }
+    .prov-emails-grid { grid-template-columns:repeat(3,1fr); }
+    .email-creation-grid { grid-template-columns:1fr; }
+    .form-row-3 { grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:768px) {
+    .nav-links { display:none; }
+    .hamburger { display:flex; }
+    section { padding:70px 0; }
+    .centres-grid, .temoignages-grid, .actu-grid { grid-template-columns:1fr; }
+    .stats-grid { grid-template-columns:1fr 1fr; }
+    .form-row { grid-template-columns:1fr; }
+    .form-row-3 { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr; gap:32px; }
+    .provinces-grid { grid-template-columns:repeat(2,1fr); }
+    .prov-emails-grid { grid-template-columns:repeat(2,1fr); }
+    .footer-bottom { flex-direction:column; text-align:center; }
+    .about-values { grid-template-columns:1fr; }
+    .student-form-body { padding:24px 16px; }
+    .student-form-header { padding:24px 20px; }
+    .nav-btns { flex-direction:column-reverse; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">OE</div>
+      <div class="logo-text">
+        <strong>OGN EYANO</strong>
+        <span>Formation Professionnelle · RDC</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#apropos">À Propos</a></li>
+      <li><a href="#centres">Centres</a></li>
+      <li><a href="#provinces">Provinces</a></li>
+      <li><a href="#actualites">Actualités</a></li>
+      <li><a href="#etudiants">Étudiants</a></li>
+      <li><a href="#emails-provinces">Emails</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#inscription" class="btn-nav"><i class="fas fa-plus-circle"></i> Inscrire un centre</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#accueil" onclick="toggleMenu()">Accueil</a>
+  <a href="#apropos" onclick="toggleMenu()">À Propos</a>
+  <a href="#centres" onclick="toggleMenu()">Centres</a>
+  <a href="#provinces" onclick="toggleMenu()">Provinces</a>
+  <a href="#actualites" onclick="toggleMenu()">Actualités</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#inscription" onclick="toggleMenu()" style="background:rgba(37,99,235,0.3);border-radius:10px;">Inscrire un centre</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge fade-up">
+        <i class="fas fa-certificate"></i>
+        ONG Conventionnée par l'État Congolais
+      </div>
+      <h1 class="fade-up delay-1">Moderniser la <span>Formation Professionnelle</span> en RDC</h1>
+      <p class="fade-up delay-2">OGN EYANO accompagne, structure et soutient plus de 490 centres de formation professionnelle agréés dans toutes les 26 provinces de la République Démocratique du Congo.</p>
+      <div class="hero-btns fade-up delay-3">
+        <a href="#apropos" class="btn-primary"><i class="fas fa-info-circle"></i> Découvrir l'ONG</a>
+        <a href="#inscription" class="btn-gold"><i class="fas fa-building"></i> Inscrire un centre</a>
+        <a href="#centres" class="btn-secondary"><i class="fas fa-search"></i> Trouver un centre</a>
+      </div>
+    </div>
+    <div class="hero-map">
+      <div class="map-container">
+        <div class="map-glow"></div>
+        <!-- Silhouette SVG de la RDC -->
+        <svg class="map-svg" viewBox="0 0 500 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#2563eb;stop-opacity:0.9"/>
+              <stop offset="50%" style="stop-color:#1a3a6b;stop-opacity:0.95"/>
+              <stop offset="100%" style="stop-color:#16a34a;stop-opacity:0.9"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Silhouette approximative de la RDC -->
+          <path d="
+            M 200 20 L 240 18 L 280 22 L 310 35 L 340 28 L 370 40 L 390 60
+            L 410 55 L 430 70 L 440 90 L 430 110 L 445 130 L 460 145 L 470 165
+            L 465 185 L 480 200 L 490 220 L 485 245 L 475 265 L 460 280
+            L 450 300 L 445 325 L 435 345 L 420 365 L 400 385 L 380 400
+            L 360 415 L 340 430 L 315 445 L 290 455 L 265 465 L 240 470
+            L 215 472 L 190 468 L 165 460 L 140 448 L 118 432 L 100 415
+            L 85 395 L 72 375 L 62 352 L 55 328 L 50 302 L 48 278
+            L 52 255 L 45 235 L 40 215 L 42 193 L 50 173 L 58 155
+            L 52 135 L 60 115 L 72 100 L 88 85 L 100 68 L 115 55
+            L 132 45 L 152 35 L 175 25 Z
+          " fill="url(#mapGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="2" filter="url(#glow)"/>
+          <!-- Rivières stylisées (Congo) -->
+          <path d="M 180 200 Q 250 180 320 210 Q 370 230 410 220" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3" stroke-dasharray="8,4"/>
+          <path d="M 150 280 Q 220 260 290 290 Q 350 310 390 300" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-dasharray="6,4"/>
+          <!-- Points provinces -->
+          <circle cx="210" cy="480" r="5" fill="#d4a017" opacity="0.9"/>
+          <circle cx="155" cy="390" r="5" fill="#22c55e" opacity="0.9"/>
+          <circle cx="350" cy="350" r="5" fill="#22c55e" opacity="0.9"/>
+          <circle cx="420" cy="300" r="5" fill="#22c55e" opacity="0.9"/>
+          <circle cx="380" cy="180" r="5" fill="#22c55e" opacity="0.9"/>
+          <circle cx="260" cy="150" r="5" fill="#22c55e" opacity="0.9"/>
+          <circle cx="140" cy="200" r="5" fill="#22c55e" opacity="0.9"/>
+          <circle cx="200" cy="300" r="7" fill="#f0c040" opacity="1"/>
+          <!-- Label Kinshasa -->
+          <text x="170" y="500" fill="rgba(255,255,255,0.9)" font-size="11" font-family="Inter,sans-serif" font-weight="700">Kinshasa</text>
+          <!-- Label RDC -->
+          <text x="220" y="260" fill="rgba(255,255,255,0.5)" font-size="22" font-family="Inter,sans-serif" font-weight="900" letter-spacing="2">RDC</text>
+        </svg>
+        <!-- Floating stats badges -->
+        <div class="map-stats" style="top:10%;left:-15%">
+          <span>490+</span>Centres partenaires
+        </div>
+        <div class="map-stats" style="top:40%;right:-20%">
+          <span>26</span>Provinces couvertes
+        </div>
+        <div class="map-stats" style="bottom:15%;left:-10%">
+          <span>Agréé</span>par l'État
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card fade-up">
+        <div class="stat-icon">🏫</div>
+        <div class="stat-num"><span id="stat1">0</span>+</div>
+        <div class="stat-label">Centres partenaires agréés</div>
+      </div>
+      <div class="stat-card fade-up delay-1">
+        <div class="stat-icon">🗺️</div>
+        <div class="stat-num"><span id="stat2">0</span></div>
+        <div class="stat-label">Provinces de la RDC couvertes</div>
+      </div>
+      <div class="stat-card fade-up delay-2">
+        <div class="stat-icon">🎓</div>
+        <div class="stat-num"><span id="stat3">0</span>K+</div>
+        <div class="stat-label">Étudiants accompagnés</div>
+      </div>
+      <div class="stat-card fade-up delay-3">
+        <div class="stat-icon">📜</div>
+        <div class="stat-num"><span id="stat4">0</span></div>
+        <div class="stat-label">Années d'engagement</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-up">
+        <div class="about-img-main">
+          <!-- Illustration professionnelle à la place d'une photo -->
+          <svg viewBox="0 0 400 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#1a3a6b"/>
+                <stop offset="100%" style="stop-color:#16a34a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#bg1)"/>
+            <!-- Building/school illustration -->
+            <rect x="80" y="120" width="240" height="140" fill="rgba(255,255,255,0.15)" rx="4"/>
+            <rect x="80" y="100" width="240" height="30" fill="rgba(255,255,255,0.25)" rx="4"/>
+            <rect x="160" y="180" width="80" height="80" fill="rgba(255,255,255,0.2)" rx="4"/>
+            <rect x="100" y="150" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="3"/>
+            <rect x="250" y="150" width="50" height="40" fill="rgba(255,255,255,0.15)" rx="3"/>
+            <!-- People -->
+            <circle cx="130" cy="90" r="18" fill="rgba(255,255,255,0.3)"/>
+            <circle cx="200" cy="85" r="22" fill="rgba(255,255,255,0.35)"/>
+            <circle cx="270" cy="90" r="18" fill="rgba(255,255,255,0.3)"/>
+            <text x="200" y="60" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="14" font-family="Inter,sans-serif" font-weight="700">OGN EYANO</text>
+            <text x="200" y="78" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="10" font-family="Inter,sans-serif">Formation Professionnelle · RDC</text>
+            <!-- Stars -->
+            <text x="60" y="50" fill="#f0c040" font-size="16">★</text>
+            <text x="320" y="50" fill="#f0c040" font-size="16">★</text>
+            <text x="190" y="35" fill="#f0c040" font-size="16">★</text>
+          </svg>
+        </div>
+        <div class="about-badge-float">
+          <strong>2015</strong>
+          <span>Année de fondation</span>
+        </div>
+      </div>
+      <div class="fade-up delay-1">
+        <div class="section-tag"><i class="fas fa-info-circle"></i> À Propos</div>
+        <h2 class="section-title">L'ONG qui transforme la <span>formation professionnelle</span> en RDC</h2>
+        <p style="color:var(--gray-600);line-height:1.8;margin-bottom:20px;">
+          OGN EYANO est une Organisation Non Gouvernementale conventionnée et agréée par l'État congolais. Fondée pour répondre au besoin urgent de structuration du secteur de la formation professionnelle, elle œuvre dans toutes les 26 provinces de la République Démocratique du Congo.
+        </p>
+        <p style="color:var(--gray-600);line-height:1.8;margin-bottom:32px;">
+          En partenariat avec le Ministère de la Formation Professionnelle, OGN EYANO accompagne plus de 490 centres agréés pour moderniser, structurer et développer l'offre de formation professionnelle accessible à la jeunesse congolaise.
+        </p>
+        <div class="about-values">
+          <div class="value-item"><i class="fas fa-check-circle"></i> Excellence</div>
+          <div class="value-item"><i class="fas fa-lightbulb"></i> Innovation</div>
+          <div class="value-item"><i class="fas fa-eye"></i> Transparence</div>
+          <div class="value-item"><i class="fas fa-users"></i> Inclusion</div>
+          <div class="value-item"><i class="fas fa-medal"></i> Discipline</div>
+          <div class="value-item"><i class="fas fa-leaf"></i> Développement durable</div>
+        </div>
+        <div style="margin-top:32px;">
+          <a href="#contact" class="btn-primary"><i class="fas fa-envelope"></i> Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CENTRES -->
+<section id="centres" class="centres-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-building"></i> Centres Partenaires</div>
+      <h2 class="section-title">Nos Centres de <span>Formation Agréés</span></h2>
+      <p class="section-sub">Découvrez les centres de formation professionnelle agréés accompagnés par OGN EYANO à travers toute la RDC.</p>
+    </div>
+    <div class="search-bar fade-up">
+      <input type="text" placeholder="🔍  Rechercher un centre..." id="searchInput">
+      <select id="provinceFilter">
+        <option value="">Toutes les provinces</option>
+        <option>Kinshasa</option><option>Kongo Central</option><option>Kwango</option>
+        <option>Kwilu</option><option>Nord-Kivu</option><option>Sud-Kivu</option>
+        <option>Haut-Katanga</option><option>Lualaba</option><option>Maniema</option>
+        <option>Ituri</option><option>Équateur</option><option>Tshopo</option>
+      </select>
+      <select id="domaineFilter">
+        <option value="">Tous les domaines</option>
+        <option>Informatique</option><option>Électricité</option><option>Mécanique</option>
+        <option>Couture</option><option>Menuiserie</option><option>Agriculture</option>
+        <option>Santé</option><option>Commerce</option>
+      </select>
+      <button onclick="searchCentres()"><i class="fas fa-search"></i> Rechercher</button>
+    </div>
+    <div class="centres-grid" id="centresGrid">
+      <!-- CENTRE 1 -->
+      <div class="centre-card fade-up">
+        <div class="centre-img">🏫<div class="centre-badge">✓ Agréé</div></div>
+        <div class="centre-body">
+          <div class="centre-prov"><i class="fas fa-map-marker-alt"></i> Kinshasa</div>
+          <div class="centre-name">Centre de Formation Professionnelle Polytechnique de Kinshasa</div>
+          <div class="centre-info"><i class="fas fa-user"></i> Dir. Jean-Pierre Mbemba</div>
+          <div class="centre-info"><i class="fas fa-phone"></i> +243 997 123 456</div>
+          <div class="centre-info"><i class="fas fa-users"></i> 320 étudiants inscrits</div>
+          <div class="centre-tags">
+            <span class="tag">Informatique</span>
+            <span class="tag">Électricité</span>
+            <span class="tag">Mécanique</span>
+          </div>
+        </div>
+        <div class="centre-footer">
+          <a href="#" class="btn-sm btn-sm-blue"><i class="fas fa-eye"></i> Voir fiche</a>
+          <a href="#contact" class="btn-sm btn-sm-outline"><i class="fas fa-phone"></i> Contacter</a>
+        </div>
+      </div>
+      <!-- CENTRE 2 -->
+      <div class="centre-card fade-up delay-1">
+        <div class="centre-img" style="background:linear-gradient(135deg,#065f46,#10b981)">🎓<div class="centre-badge">✓ Agréé</div></div>
+        <div class="centre-body">
+          <div class="centre-prov"><i class="fas fa-map-marker-alt"></i> Nord-Kivu · Goma</div>
+          <div class="centre-name">Institut Supérieur des Arts et Métiers de Goma</div>
+          <div class="centre-info"><i class="fas fa-user"></i> Dir. Marie-Claire Kabila</div>
+          <div class="centre-info"><i class="fas fa-phone"></i> +243 812 456 789</div>
+          <div class="centre-info"><i class="fas fa-users"></i> 215 étudiants inscrits</div>
+          <div class="centre-tags">
+            <span class="tag">Couture</span>
+            <span class="tag">Menuiserie</span>
+            <span class="tag">Agriculture</span>
+          </div>
+        </div>
+        <div class="centre-footer">
+          <a href="#" class="btn-sm btn-sm-blue"><i class="fas fa-eye"></i> Voir fiche</a>
+          <a href="#contact" class="btn-sm btn-sm-outline"><i class="fas fa-phone"></i> Contacter</a>
+        </div>
+      </div>
+      <!-- CENTRE 3 -->
+      <div class="centre-card fade-up delay-2">
+        <div class="centre-img" style="background:linear-gradient(135deg,#7c2d12,#ea580c)">⚙️<div class="centre-badge">✓ Agréé</div></div>
+        <div class="centre-body">
+          <div class="centre-prov"><i class="fas fa-map-marker-alt"></i> Haut-Katanga · Lubumbashi</div>
+          <div class="centre-name">Centre Technique et Industriel du Katanga</div>
+          <div class="centre-info"><i class="fas fa-user"></i> Dir. Paul Kasongo</div>
+          <div class="centre-info"><i class="fas fa-phone"></i> +243 851 789 012</div>
+          <div class="centre-info"><i class="fas fa-users"></i> 480 étudiants inscrits</div>
+          <div class="centre-tags">
+            <span class="tag">Mines</span>
+            <span class="tag">Mécanique</span>
+            <span class="tag">Électricité</span>
+          </div>
+        </div>
+        <div class="centre-footer">
+          <a href="#" class="btn-sm btn-sm-blue"><i class="fas fa-eye"></i> Voir fiche</a>
+          <a href="#contact" class="btn-sm btn-sm-outline"><i class="fas fa-phone"></i> Contacter</a>
+        </div>
+      </div>
+      <!-- CENTRE 4 -->
+      <div class="centre-card fade-up">
+        <div class="centre-img" style="background:linear-gradient(135deg,#1e1b4b,#6d28d9)">💻<div class="centre-badge">✓ Agréé</div></div>
+        <div class="centre-body">
+          <div class="centre-prov"><i class="fas fa-map-marker-alt"></i> Kongo Central · Matadi</div>
+          <div class="centre-name">École des Nouvelles Technologies de Matadi</div>
+          <div class="centre-info"><i class="fas fa-user"></i> Dir. Arlette Nzinga</div>
+          <div class="centre-info"><i class="fas fa-phone"></i> +243 970 234 567</div>
+          <div class="centre-info"><i class="fas fa-users"></i> 190 étudiants inscrits</div>
+          <div class="centre-tags">
+            <span class="tag">Informatique</span>
+            <span class="tag">Commerce</span>
+          </div>
+        </div>
+        <div class="centre-footer">
+          <a href="#" class="btn-sm btn-sm-blue"><i class="fas fa-eye"></i> Voir fiche</a>
+          <a href="#contact" class="btn-sm btn-sm-outline"><i class="fas fa-phone"></i> Contacter</a>
+        </div>
+      </div>
+      <!-- CENTRE 5 -->
+      <div class="centre-card fade-up delay-1">
+        <div class="centre-img" style="background:linear-gradient(135deg,#164e63,#0ea5e9)">🏥<div class="centre-badge">✓ Agréé</div></div>
+        <div class="centre-body">
+          <div class="centre-prov"><i class="fas fa-map-marker-alt"></i> Ituri · Bunia</div>
+          <div class="centre-name">Institut de Formation Paramédicale de l'Ituri</div>
+          <div class="centre-info"><i class="fas fa-user"></i> Dir. Dr. Augustin Paluku</div>
+          <div class="centre-info"><i class="fas fa-phone"></i> +243 997 456 123</div>
+          <div class="centre-info"><i class="fas fa-users"></i> 155 étudiants inscrits</div>
+          <div class="centre-tags">
+            <span class="tag">Santé</span>
+            <span class="tag">Pharmacie</span>
+          </div>
+        </div>
+        <div class="centre-footer">
+          <a href="#" class="btn-sm btn-sm-blue"><i class="fas fa-eye"></i> Voir fiche</a>
+          <a href="#contact" class="btn-sm btn-sm-outline"><i class="fas fa-phone"></i> Contacter</a>
+        </div>
+      </div>
+      <!-- CENTRE 6 -->
+      <div class="centre-card fade-up delay-2">
+        <div class="centre-img" style="background:linear-gradient(135deg,#14532d,#4ade80)">🌱<div class="centre-badge">✓ Agréé</div></div>
+        <div class="centre-body">
+          <div class="centre-prov"><i class="fas fa-map-marker-alt"></i> Équateur · Mbandaka</div>
+          <div class="centre-name">Centre Agro-Pastoral de Mbandaka</div>
+          <div class="centre-info"><i class="fas fa-user"></i> Dir. Faustin Elanga</div>
+          <div class="centre-info"><i class="fas fa-phone"></i> +243 820 567 890</div>
+          <div class="centre-info"><i class="fas fa-users"></i> 130 étudiants inscrits</div>
+          <div class="centre-tags">
+            <span class="tag">Agriculture</span>
+            <span class="tag">Élevage</span>
+            <span class="tag">Environnement</span>
+          </div>
+        </div>
+        <div class="centre-footer">
+          <a href="#" class="btn-sm btn-sm-blue"><i class="fas fa-eye"></i> Voir fiche</a>
+          <a href="#contact" class="btn-sm btn-sm-outline"><i class="fas fa-phone"></i> Contacter</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a href="#" class="btn-primary"><i class="fas fa-th-list"></i> Voir tous les 490+ centres</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPTION -->
+<section id="inscription" class="inscription-section">
+  <div class="container">
+    <div class="inscription-inner">
+      <div class="inscription-text fade-up">
+        <div class="section-tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.2)">
+          <i class="fas fa-plus-circle"></i> Rejoindre le réseau
+        </div>
+        <h2>Inscrivez votre centre dans le réseau <span style="color:var(--gold-light)">OGN EYANO</span></h2>
+        <p>Rejoignez le plus grand réseau de centres de formation professionnelle agréés de la RDC. Bénéficiez d'un accompagnement complet, d'une visibilité nationale et d'un soutien institutionnel.</p>
+        <ul class="inscription-steps">
+          <li>
+            <div class="step-num">1</div>
+            <div>
+              <strong style="color:white;display:block;margin-bottom:4px;">Remplissez le formulaire</strong>
+              <span style="color:rgba(255,255,255,0.7);font-size:14px;">Fournissez les informations de votre centre de formation</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div>
+              <strong style="color:white;display:block;margin-bottom:4px;">Vérification des documents</strong>
+              <span style="color:rgba(255,255,255,0.7);font-size:14px;">Nos équipes vérifient votre agrément ministériel</span>
+            </div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div>
+              <strong style="color:white;display:block;margin-bottom:4px;">Validation et intégration</strong>
+              <span style="color:rgba(255,255,255,0.7);font-size:14px;">Votre centre rejoint officiellement le réseau OGN EYANO</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="form-card fade-up delay-1">
+        <h3><i class="fas fa-building" style="color:var(--blue-light)"></i> Formulaire d'inscription du centre</h3>
+        <form onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nom du centre *</label>
+              <input type="text" placeholder="Ex: Centre Polytechnique de..." required>
+            </div>
+            <div class="form-group">
+              <label>N° d'agrément *</label>
+              <input type="text" placeholder="Numéro officiel" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Province *</label>
+              <select required>
+                <option value="">Sélectionner...</option>
+                <option>Kinshasa</option><option>Kongo Central</option><option>Kwango</option>
+                <option>Kwilu</option><option>Nord-Kivu</option><option>Sud-Kivu</option>
+                <option>Haut-Katanga</option><option>Lualaba</option><option>Maniema</option>
+                <option>Ituri</option><option>Équateur</option><option>Tshopo</option>
+                <option>Bas-Uele</option><option>Haut-Uele</option><option>Tanganyika</option>
+                <option>Haut-Lomami</option><option>Sankuru</option><option>Lomami</option>
+                <option>Kasaï</option><option>Kasaï Central</option><option>Kasaï Oriental</option>
+                <option>Mongala</option><option>Nord-Ubangi</option><option>Sud-Ubangi</option>
+                <option>Tshuapa</option><option>Mai-Ndombe</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Ville *</label>
+              <input type="text" placeholder="Ville du centre" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Nom du responsable *</label>
+            <input type="text" placeholder="Nom complet" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Téléphone *</label>
+              <input type="tel" placeholder="+243 9XX XXX XXX" required>
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" placeholder="email@centre.cd" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Filières enseignées</label>
+            <input type="text" placeholder="Ex: Informatique, Électricité, Mécanique...">
+          </div>
+          <div class="form-group">
+            <label>Description du centre</label>
+            <textarea placeholder="Décrivez brièvement votre centre de formation..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit">
+            <i class="fas fa-paper-plane"></i> Soumettre la demande d'inscription
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-quote-left"></i> Témoignages</div>
+      <h2 class="section-title">Ce que disent nos <span>centres partenaires</span></h2>
+    </div>
+    <div class="temoignages-grid">
+      <div class="temoignage-card fade-up">
+        <div class="temo-quote">"</div>
+        <div class="temo-stars">★★★★★</div>
+        <p class="temo-text">Grâce à OGN EYANO, notre centre a gagné en visibilité et en crédibilité. L'accompagnement institutionnel a vraiment transformé notre façon de travailler et d'attirer de nouveaux étudiants.</p>
+        <div class="temo-author">
+          <div class="temo-avatar">JP</div>
+          <div>
+            <div class="temo-name">Jean-Pierre Mbemba</div>
+            <div class="temo-role">Directeur, CFP Polytechnique · Kinshasa</div>
+          </div>
+        </div>
+      </div>
+      <div class="temoignage-card fade-up delay-1">
+        <div class="temo-quote">"</div>
+        <div class="temo-stars">★★★★★</div>
+        <p class="temo-text">L'inscription au réseau OGN EYANO a été une vraie opportunité pour notre centre. Nos étudiants ont maintenant accès à plus de ressources et nos diplômes sont reconnus à l'échelle nationale.</p>
+        <div class="temo-author">
+          <div class="temo-avatar" style="background:linear-gradient(135deg,#16a34a,#22c55e)">MC</div>
+          <div>
+            <div class="temo-name">Marie-Claire Kabila</div>
+            <div class="temo-role">Directrice, ISAM · Goma, Nord-Kivu</div>
+          </div>
+        </div>
+      </div>
+      <div class="temoignage-card fade-up delay-2">
+        <div class="temo-quote">"</div>
+        <div class="temo-stars">★★★★★</div>
+        <p class="temo-text">Une organisation sérieuse et professionnelle. OGN EYANO nous a aidés à moderniser nos programmes et à obtenir tous les agréments nécessaires du Ministère. Je recommande à tous les centres.</p>
+        <div class="temo-author">
+          <div class="temo-avatar" style="background:linear-gradient(135deg,#d4a017,#f0c040);color:#1a3a6b">PK</div>
+          <div>
+            <div class="temo-name">Paul Kasongo</div>
+            <div class="temo-role">Directeur, CTI Katanga · Lubumbashi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVINCES -->
+<section class="provinces-section" id="provinces">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.2)">
+        <i class="fas fa-map"></i> Couverture Nationale
+      </div>
+      <h2 class="section-title">Présent dans les <span style="color:var(--gold-light)">26 provinces</span> de la RDC</h2>
+      <p class="section-sub">OGN EYANO couvre l'ensemble du territoire national avec des centres partenaires dans chaque province.</p>
+    </div>
+    <div class="provinces-grid">
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Kinshasa</span><span class="province-count">80</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Nord-Kivu</span><span class="province-count">62</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Kongo Central</span><span class="province-count">28</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Kwango</span><span class="province-count">14</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Kwilu</span><span class="province-count">18</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Mai-Ndombe</span><span class="province-count">10</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Équateur</span><span class="province-count">20</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Mongala</span><span class="province-count">12</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Nord-Ubangi</span><span class="province-count">15</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Sud-Ubangi</span><span class="province-count">13</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Tshuapa</span><span class="province-count">8</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Tshopo</span><span class="province-count">16</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Bas-Uele</span><span class="province-count">11</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Haut-Uele</span><span class="province-count">10</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Ituri</span><span class="province-count">18</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Sud-Kivu</span><span class="province-count">24</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Maniema</span><span class="province-count">4</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Tanganyika</span><span class="province-count">4</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Haut-Lomami</span><span class="province-count">4</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Lualaba</span><span class="province-count">5</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Haut-Katanga</span><span class="province-count">12</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Sankuru</span><span class="province-count">3</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Lomami</span><span class="province-count">4</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Kasaï</span><span class="province-count">5</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Kasaï Central</span><span class="province-count">5</span></div>
+      <div class="province-item"><div class="province-dot-sm"></div><span class="province-name">Kasaï Oriental</span><span class="province-count">5</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTUALITES -->
+<section id="actualites" class="actualites-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-newspaper"></i> Actualités</div>
+      <h2 class="section-title">Dernières <span>Nouvelles</span> & Événements</h2>
+      <p class="section-sub">Restez informé des dernières actualités de l'OGN EYANO et du secteur de la formation professionnelle en RDC.</p>
+    </div>
+    <div class="actu-grid">
+      <div class="actu-card fade-up">
+        <div class="actu-img actu-img-1">
+          📋
+          <div class="actu-cat">Institutionnel</div>
+        </div>
+        <div class="actu-body">
+          <div class="actu-date"><i class="fas fa-calendar"></i> 15 Avril 2025</div>
+          <h3 class="actu-title">OGN EYANO signe un nouveau protocole avec le Ministère de la Formation Professionnelle</h3>
+          <p class="actu-excerpt">Un accord historique renforçant la collaboration entre OGN EYANO et le gouvernement congolais pour moderniser 50 nouveaux centres de formation en 2025.</p>
+          <a href="#" class="actu-link">Lire l'article <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="actu-card fade-up delay-1">
+        <div class="actu-img actu-img-2">
+          🎓
+          <div class="actu-cat">Événement</div>
+        </div>
+        <div class="actu-body">
+          <div class="actu-date"><i class="fas fa-calendar"></i> 8 Mars 2025</div>
+          <h3 class="actu-title">Forum national des centres de formation : 300 directeurs réunis à Kinshasa</h3>
+          <p class="actu-excerpt">Le premier forum national organisé par OGN EYANO a réuni plus de 300 directeurs de centres de formation professionnelle de toutes les provinces de la RDC.</p>
+          <a href="#" class="actu-link">Lire l'article <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="actu-card fade-up delay-2">
+        <div class="actu-img actu-img-3">
+          🌍
+          <div class="actu-cat">Partenariat</div>
+        </div>
+        <div class="actu-body">
+          <div class="actu-date"><i class="fas fa-calendar"></i> 20 Février 2025</div>
+          <h3 class="actu-title">Lancement du programme de digitalisation des 490 centres partenaires</h3>
+          <p class="actu-excerpt">OGN EYANO lance un programme ambitieux de transition numérique pour équiper et moderniser l'ensemble de ses centres partenaires à travers la RDC.</p>
+          <a href="#" class="actu-link">Lire l'article <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px">
+      <a href="#" class="btn-primary"><i class="fas fa-th-list"></i> Voir toutes les actualités</a>
+    </div>
+  </div>
+</section>
+
+<!-- PARTENAIRES -->
+<section class="partners-section">
+  <div class="container">
+    <p class="partners-title">Nos partenaires institutionnels</p>
+    <div class="partners-row">
+      <div class="partner-item">
+        <div class="partner-icon" style="background:rgba(37,99,235,0.1)">🏛️</div>
+        <span class="partner-name">Ministère de la Formation Professionnelle</span>
+      </div>
+      <div class="partner-item">
+        <div class="partner-icon" style="background:rgba(22,163,74,0.1)">🇨🇩</div>
+        <span class="partner-name">Gouvernement de la RDC</span>
+      </div>
+      <div class="partner-item">
+        <div class="partner-icon" style="background:rgba(212,160,23,0.1)">🌍</div>
+        <span class="partner-name">ONU · PNUD</span>
+      </div>
+      <div class="partner-item">
+        <div class="partner-icon" style="background:rgba(239,68,68,0.1)">❤️</div>
+        <span class="partner-name">ONG Nationales</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAILS PROVINCES -->
+<section id="emails-provinces" class="prov-emails-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-at"></i> Emails par Province</div>
+      <h2 class="section-title">Contactez chaque <span>province directement</span></h2>
+      <p class="section-sub">Chaque province de la RDC dispose de son adresse email officielle @eyano.org pour un contact direct avec le responsable provincial.</p>
+    </div>
+    <div class="prov-emails-grid fade-up">
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Kinshasa</div><div class="prov-addr">kinshasa@eyano.org</div><div class="prov-copy" onclick="copyEmail('kinshasa@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Kongo Central</div><div class="prov-addr">kongo-central@eyano.org</div><div class="prov-copy" onclick="copyEmail('kongo-central@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Kwango</div><div class="prov-addr">kwango@eyano.org</div><div class="prov-copy" onclick="copyEmail('kwango@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Kwilu</div><div class="prov-addr">kwilu@eyano.org</div><div class="prov-copy" onclick="copyEmail('kwilu@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Mai-Ndombe</div><div class="prov-addr">mai-ndombe@eyano.org</div><div class="prov-copy" onclick="copyEmail('mai-ndombe@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Équateur</div><div class="prov-addr">equateur@eyano.org</div><div class="prov-copy" onclick="copyEmail('equateur@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Mongala</div><div class="prov-addr">mongala@eyano.org</div><div class="prov-copy" onclick="copyEmail('mongala@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Nord-Ubangi</div><div class="prov-addr">nord-ubangi@eyano.org</div><div class="prov-copy" onclick="copyEmail('nord-ubangi@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Sud-Ubangi</div><div class="prov-addr">sud-ubangi@eyano.org</div><div class="prov-copy" onclick="copyEmail('sud-ubangi@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Tshuapa</div><div class="prov-addr">tshuapa@eyano.org</div><div class="prov-copy" onclick="copyEmail('tshuapa@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Tshopo</div><div class="prov-addr">tshopo@eyano.org</div><div class="prov-copy" onclick="copyEmail('tshopo@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Bas-Uele</div><div class="prov-addr">bas-uele@eyano.org</div><div class="prov-copy" onclick="copyEmail('bas-uele@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Haut-Uele</div><div class="prov-addr">haut-uele@eyano.org</div><div class="prov-copy" onclick="copyEmail('haut-uele@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Ituri</div><div class="prov-addr">ituri@eyano.org</div><div class="prov-copy" onclick="copyEmail('ituri@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Nord-Kivu</div><div class="prov-addr">nord-kivu@eyano.org</div><div class="prov-copy" onclick="copyEmail('nord-kivu@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Sud-Kivu</div><div class="prov-addr">sud-kivu@eyano.org</div><div class="prov-copy" onclick="copyEmail('sud-kivu@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Maniema</div><div class="prov-addr">maniema@eyano.org</div><div class="prov-copy" onclick="copyEmail('maniema@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Tanganyika</div><div class="prov-addr">tanganyika@eyano.org</div><div class="prov-copy" onclick="copyEmail('tanganyika@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Haut-Lomami</div><div class="prov-addr">haut-lomami@eyano.org</div><div class="prov-copy" onclick="copyEmail('haut-lomami@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Lualaba</div><div class="prov-addr">lualaba@eyano.org</div><div class="prov-copy" onclick="copyEmail('lualaba@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Haut-Katanga</div><div class="prov-addr">haut-katanga@eyano.org</div><div class="prov-copy" onclick="copyEmail('haut-katanga@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Sankuru</div><div class="prov-addr">sankuru@eyano.org</div><div class="prov-copy" onclick="copyEmail('sankuru@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Lomami</div><div class="prov-addr">lomami@eyano.org</div><div class="prov-copy" onclick="copyEmail('lomami@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Kasaï</div><div class="prov-addr">kasai@eyano.org</div><div class="prov-copy" onclick="copyEmail('kasai@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Kasaï Central</div><div class="prov-addr">kasai-central@eyano.org</div><div class="prov-copy" onclick="copyEmail('kasai-central@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+      <div class="prov-email-card"><div class="prov-flag"><i class="fas fa-envelope"></i></div><div class="prov-name">Kasaï Oriental</div><div class="prov-addr">kasai-oriental@eyano.org</div><div class="prov-copy" onclick="copyEmail('kasai-oriental@eyano.org',this)"><i class="fas fa-copy"></i> Copier</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CREATION -->
+<section class="email-creation-section" id="creer-email">
+  <div class="container">
+    <div class="email-creation-grid">
+      <div class="fade-up">
+        <div class="section-tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9);border-color:rgba(255,255,255,0.2)"><i class="fas fa-at"></i> Email Professionnel</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:white;margin:16px 0;">Créez votre email <span style="color:var(--gold-light)">professionnel</span> @eyano.org</h2>
+        <p style="color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:24px;">Chaque province et chaque centre partenaire peut disposer d'une adresse email professionnelle officielle sous le domaine @eyano.org pour une communication institutionnelle.</p>
+        <div class="email-preview-box">
+          <div class="email-preview-row"><div class="email-dot"></div><div class="email-preview-addr">contact@eyano.org</div><span class="email-type-badge">Siège</span></div>
+          <div class="email-preview-row"><div class="email-dot"></div><div class="email-preview-addr">direction@eyano.org</div><span class="email-type-badge">Direction</span></div>
+          <div class="email-preview-row"><div class="email-dot"></div><div class="email-preview-addr">kinshasa@eyano.org</div><span class="email-type-badge">Province</span></div>
+          <div class="email-preview-row"><div class="email-dot"></div><div class="email-preview-addr">nord-kivu@eyano.org</div><span class="email-type-badge">Province</span></div>
+          <div class="email-preview-row"><div class="email-dot"></div><div class="email-preview-addr">centre.polytechnique@eyano.org</div><span class="email-type-badge">Centre</span></div>
+          <div class="email-preview-row"><div class="email-dot"></div><div class="email-preview-addr">admin.lubumbashi@eyano.org</div><span class="email-type-badge">Admin</span></div>
+        </div>
+      </div>
+      <div class="email-form-card fade-up delay-1">
+        <h3><i class="fas fa-magic" style="color:var(--blue-light)"></i> Demander un email @eyano.org</h3>
+        <p>Remplissez ce formulaire pour obtenir votre adresse email professionnelle officielle.</p>
+        <form onsubmit="submitEmail(event)">
+          <div class="form-group">
+            <label>Type d'email souhaité *</label>
+            <select id="emailType" onchange="updateEmailPreview()" required>
+              <option value="">Sélectionner le type...</option>
+              <option value="province">Email Provincial (province@eyano.org)</option>
+              <option value="centre">Email Centre (centre.nom@eyano.org)</option>
+              <option value="admin">Email Admin (admin.ville@eyano.org)</option>
+              <option value="perso">Email Personnel (prenom.nom@eyano.org)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Identifiant souhaité *</label>
+            <input type="text" id="emailPrefix" placeholder="Ex: nord-kivu, centre-goma, jean.mbemba..." oninput="updateEmailPreview()" required>
+          </div>
+          <div class="email-preview-live" id="emailLivePreview">votre-identifiant@eyano.org</div>
+          <div class="form-group">
+            <label>Nom complet du responsable *</label>
+            <input type="text" placeholder="Nom et prénom" required>
+          </div>
+          <div class="form-group">
+            <label>Province *</label>
+            <select required>
+              <option value="">Sélectionner...</option>
+              <option>Kinshasa</option><option>Kongo Central</option><option>Nord-Kivu</option>
+              <option>Sud-Kivu</option><option>Haut-Katanga</option><option>Ituri</option>
+              <option>Équateur</option><option>Maniema</option><option>Lualaba</option>
+              <option>Kwilu</option><option>Kwango</option><option>Tshopo</option>
+              <option>Bas-Uele</option><option>Haut-Uele</option><option>Mongala</option>
+              <option>Nord-Ubangi</option><option>Sud-Ubangi</option><option>Tshuapa</option>
+              <option>Tanganyika</option><option>Haut-Lomami</option><option>Sankuru</option>
+              <option>Lomami</option><option>Kasaï</option><option>Kasaï Central</option>
+              <option>Kasaï Oriental</option><option>Mai-Ndombe</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Email actuel (pour recevoir les identifiants) *</label>
+            <input type="email" placeholder="votre.email.actuel@exemple.com" required>
+          </div>
+          <div class="form-group">
+            <label>Téléphone *</label>
+            <input type="tel" placeholder="+243 9XX XXX XXX" required>
+          </div>
+          <div class="form-group">
+            <label>Justification / Raison de la demande</label>
+            <textarea placeholder="Expliquez pourquoi vous avez besoin de cet email..." style="min-height:80px"></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit"><i class="fas fa-paper-plane"></i> Soumettre la demande</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSCRIPTION ELEVES -->
+<section id="etudiants" class="student-reg-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-user-graduate"></i> Espace Étudiant</div>
+      <h2 class="section-title">Inscription des <span>Élèves</span></h2>
+      <p class="section-sub">Inscrivez-vous dans un centre de formation professionnelle partenaire de l'OGN EYANO. Choisissez votre province, votre centre et votre filière.</p>
+    </div>
+    <div class="student-form-wrap fade-up">
+      <div class="student-form-header">
+        <h3><i class="fas fa-graduation-cap"></i> Formulaire d'inscription étudiant</h3>
+        <p>Remplissez toutes les informations ci-dessous. Les champs marqués * sont obligatoires.</p>
+      </div>
+      <div class="student-form-body">
+        <!-- Steps progress -->
+        <div style="display:flex;flex-direction:column;align-items:stretch;margin-bottom:32px">
+          <div class="steps-progress">
+            <div class="step-dot active" id="sdot1">1</div>
+            <div class="step-line" id="sline1"></div>
+            <div class="step-dot" id="sdot2">2</div>
+            <div class="step-line" id="sline2"></div>
+            <div class="step-dot" id="sdot3">3</div>
+            <div class="step-line" id="sline3"></div>
+            <div class="step-dot" id="sdot4">4</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:8px">
+            <span class="step-label">Identité</span>
+            <span class="step-label">Localisation</span>
+            <span class="step-label">Formation</span>
+            <span class="step-label">Confirmation</span>
+          </div>
+        </div>
+
+        <form id="studentForm" onsubmit="submitStudent(event)">
+
+          <!-- STEP 1 : Identité -->
+          <div class="form-step active" id="step1">
+            <div class="form-section-title"><i class="fas fa-id-card"></i> Informations personnelles</div>
+            <div class="form-row-3">
+              <div class="form-group">
+                <label>Nom *</label>
+                <input type="text" placeholder="Nom de famille" required>
+              </div>
+              <div class="form-group">
+                <label>Post-nom</label>
+                <input type="text" placeholder="Post-nom">
+              </div>
+              <div class="form-group">
+                <label>Prénom *</label>
+                <input type="text" placeholder="Prénom" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Date de naissance *</label>
+                <input type="date" required>
+              </div>
+              <div class="form-group">
+                <label>Sexe *</label>
+                <select required>
+                  <option value="">Sélectionner...</option>
+                  <option>Masculin</option>
+                  <option>Féminin</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nationalité *</label>
+                <input type="text" value="Congolaise (RDC)" required>
+              </div>
+              <div class="form-group">
+                <label>N° pièce d'identité</label>
+                <input type="text" placeholder="CIN / Passeport / autre">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Téléphone *</label>
+                <input type="tel" placeholder="+243 9XX XXX XXX" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="votre@email.com (optionnel)">
+              </div>
+            </div>
+            <div class="form-section-title" style="margin-top:24px"><i class="fas fa-book"></i> Niveau d'études</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Dernier niveau d'études *</label>
+                <select required>
+                  <option value="">Sélectionner votre niveau...</option>
+                  <optgroup label="Niveau Primaire">
+                    <option>5ème primaire</option>
+                    <option>6ème primaire (CFPE)</option>
+                  </optgroup>
+                  <optgroup label="Niveau Secondaire">
+                    <option>1ère secondaire</option>
+                    <option>2ème secondaire</option>
+                    <option>3ème secondaire</option>
+                    <option>4ème secondaire</option>
+                    <option>5ème secondaire</option>
+                    <option>6ème secondaire (Diplôme d'État)</option>
+                  </optgroup>
+                  <optgroup label="Études supérieures">
+                    <option>Graduat (A1)</option>
+                    <option>Licence (A0)</option>
+                    <option>Master / Post-grade</option>
+                  </optgroup>
+                  <optgroup label="Formation professionnelle antérieure">
+                    <option>Certificat professionnel A2</option>
+                    <option>Certificat professionnel A3</option>
+                    <option>Brevet professionnel</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Année d'obtention du diplôme</label>
+                <input type="number" placeholder="Ex: 2023" min="1990" max="2025">
+              </div>
+            </div>
+            <div class="nav-btns">
+              <div></div>
+              <button type="button" class="btn-next" onclick="goStep(2)">Suivant <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- STEP 2 : Localisation -->
+          <div class="form-step" id="step2">
+            <div class="form-section-title"><i class="fas fa-map-marker-alt"></i> Localisation & Centre de formation</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Province de résidence *</label>
+                <select id="studentProvince" onchange="updateCentres()" required>
+                  <option value="">Sélectionner votre province...</option>
+                  <option>Kinshasa</option><option>Kongo Central</option><option>Kwango</option>
+                  <option>Kwilu</option><option>Mai-Ndombe</option><option>Équateur</option>
+                  <option>Mongala</option><option>Nord-Ubangi</option><option>Sud-Ubangi</option>
+                  <option>Tshuapa</option><option>Tshopo</option><option>Bas-Uele</option>
+                  <option>Haut-Uele</option><option>Ituri</option><option>Nord-Kivu</option>
+                  <option>Sud-Kivu</option><option>Maniema</option><option>Tanganyika</option>
+                  <option>Haut-Lomami</option><option>Lualaba</option><option>Haut-Katanga</option>
+                  <option>Sankuru</option><option>Lomami</option><option>Kasaï</option>
+                  <option>Kasaï Central</option><option>Kasaï Oriental</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Ville / Territoire *</label>
+                <input type="text" placeholder="Ex: Goma, Butembo, Lubumbashi..." required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Adresse complète</label>
+              <input type="text" placeholder="Quartier, avenue, numéro...">
+            </div>
+            <div class="form-section-title"><i class="fas fa-building"></i> Centre de formation choisi</div>
+            <div class="form-group">
+              <label>Nom du centre de formation *</label>
+              <input type="text" id="centreName" placeholder="Tapez le nom du centre ou sélectionnez ci-dessous..." required>
+            </div>
+            <div class="form-group">
+              <label>Ou choisir parmi les centres agréés de votre province</label>
+              <select id="centreSelect" onchange="selectCentre()">
+                <option value="">-- Sélectionnez d'abord votre province --</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Province du centre *</label>
+                <select required>
+                  <option value="">Sélectionner...</option>
+                  <option>Kinshasa</option><option>Kongo Central</option><option>Kwango</option>
+                  <option>Kwilu</option><option>Mai-Ndombe</option><option>Équateur</option>
+                  <option>Mongala</option><option>Nord-Ubangi</option><option>Sud-Ubangi</option>
+                  <option>Tshuapa</option><option>Tshopo</option><option>Bas-Uele</option>
+                  <option>Haut-Uele</option><option>Ituri</option><option>Nord-Kivu</option>
+                  <option>Sud-Kivu</option><option>Maniema</option><option>Tanganyika</option>
+                  <option>Haut-Lomami</option><option>Lualaba</option><option>Haut-Katanga</option>
+                  <option>Sankuru</option><option>Lomami</option><option>Kasaï</option>
+                  <option>Kasaï Central</option><option>Kasaï Oriental</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Ville du centre *</label>
+                <input type="text" placeholder="Ville où se trouve le centre" required>
+              </div>
+            </div>
+            <div class="nav-btns">
+              <button type="button" class="btn-prev" onclick="goStep(1)"><i class="fas fa-arrow-left"></i> Précédent</button>
+              <button type="button" class="btn-next" onclick="goStep(3)">Suivant <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- STEP 3 : Formation -->
+          <div class="form-step" id="step3">
+            <div class="form-section-title"><i class="fas fa-tools"></i> Filière et formation souhaitée</div>
+            <div class="form-group">
+              <label>Filière principale souhaitée * <span style="color:var(--gray-600);font-weight:400">(cliquez sur une filière ou sélectionnez dans la liste)</span></label>
+              <select id="filiereSelect" onchange="selectFiliereTag(this.value)" required style="margin-bottom:16px">
+                <option value="">Sélectionner une filière...</option>
+                <option>Menuiserie</option><option>Coiffure & Esthétique</option>
+                <option>Maçonnerie & Construction</option><option>Tissage & Broderie</option>
+                <option>Couture & Confection</option><option>Électricité</option>
+                <option>Informatique & Bureautique</option><option>Mécanique Automobile</option>
+                <option>Plomberie & Sanitaire</option><option>Soudure & Chaudronnerie</option>
+                <option>Agriculture & Agronomie</option><option>Élevage & Zootechnie</option>
+                <option>Pêche & Aquaculture</option><option>Commerce & Vente</option>
+                <option>Comptabilité & Finance</option><option>Secrétariat & Administration</option>
+                <option>Hôtellerie & Tourisme</option><option>Cuisine & Gastronomie</option>
+                <option>Pâtisserie & Boulangerie</option><option>Mécanique Générale</option>
+                <option>Électronique & Télécoms</option><option>Climatisation & Froid</option>
+                <option>Carrelage & Dallage</option><option>Peinture en Bâtiment</option>
+                <option>Ébénisterie & Tapisserie</option><option>Hydraulique & Irrigation</option>
+                <option>Santé & Soins Infirmiers</option><option>Pharmacie & Laboratoire</option>
+                <option>Éducation & Pédagogie</option><option>Journalisme & Médias</option>
+                <option>Photographie & Vidéo</option><option>Imprimerie & Sérigraphie</option>
+                <option>Forge & Ferronnerie</option><option>Teinture & Batik</option>
+                <option>Savonnerie & Cosmétique</option><option>Maraîchage & Jardinage</option>
+                <option>Transformation Alimentaire</option><option>Logistique & Transport</option>
+              </select>
+              <div class="filieres-tags" id="filiereTagsContainer">
+                <div class="filiere-tag" onclick="selectFiliereTag('Menuiserie')">🪵 Menuiserie</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Coiffure & Esthétique')">✂️ Coiffure</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Maçonnerie & Construction')">🧱 Maçonnerie</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Tissage & Broderie')">🧵 Tissage</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Couture & Confection')">🧶 Couture</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Électricité')">⚡ Électricité</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Informatique & Bureautique')">💻 Informatique</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Mécanique Automobile')">🚗 Mécanique Auto</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Plomberie & Sanitaire')">🔧 Plomberie</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Soudure & Chaudronnerie')">🔥 Soudure</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Agriculture & Agronomie')">🌾 Agriculture</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Élevage & Zootechnie')">🐄 Élevage</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Pêche & Aquaculture')">🐟 Pêche</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Commerce & Vente')">🛒 Commerce</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Comptabilité & Finance')">📊 Comptabilité</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Secrétariat & Administration')">📋 Secrétariat</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Hôtellerie & Tourisme')">🏨 Hôtellerie</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Cuisine & Gastronomie')">👨‍🍳 Cuisine</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Pâtisserie & Boulangerie')">🥐 Pâtisserie</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Mécanique Générale')">⚙️ Mécanique Gén.</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Électronique & Télécoms')">📡 Électronique</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Climatisation & Froid')">❄️ Climatisation</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Carrelage & Dallage')">🏗️ Carrelage</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Peinture en Bâtiment')">🎨 Peinture Bât.</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Ébénisterie & Tapisserie')">🛋️ Ébénisterie</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Santé & Soins Infirmiers')">🏥 Santé / Nursing</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Pharmacie & Laboratoire')">💊 Pharmacie</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Éducation & Pédagogie')">📚 Éducation</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Journalisme & Médias')">📰 Journalisme</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Photographie & Vidéo')">📷 Photo / Vidéo</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Forge & Ferronnerie')">🔨 Forge</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Teinture & Batik')">🎭 Teinture</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Savonnerie & Cosmétique')">🧴 Savonnerie</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Maraîchage & Jardinage')">🥦 Maraîchage</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Transformation Alimentaire')">🥫 Transform. Alim.</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Logistique & Transport')">🚚 Logistique</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Hydraulique & Irrigation')">💧 Hydraulique</div>
+                <div class="filiere-tag" onclick="selectFiliereTag('Imprimerie & Sérigraphie')">🖨️ Imprimerie</div>
+              </div>
+            </div>
+            <div class="form-group" style="margin-top:20px">
+              <label>Durée de formation souhaitée *</label>
+              <select required>
+                <option value="">Sélectionner...</option>
+                <option>3 mois (Formation courte)</option>
+                <option>6 mois</option>
+                <option>1 an</option>
+                <option>2 ans</option>
+                <option>3 ans (Diplôme complet)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Disponibilité *</label>
+              <select required>
+                <option value="">Sélectionner...</option>
+                <option>Cours du jour (7h - 13h)</option>
+                <option>Cours du soir (14h - 18h)</option>
+                <option>Week-end uniquement</option>
+                <option>Formation à distance</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Avez-vous une expérience dans ce domaine ?</label>
+              <select>
+                <option value="">Sélectionner...</option>
+                <option>Aucune expérience (débutant)</option>
+                <option>Moins de 1 an</option>
+                <option>1 à 3 ans</option>
+                <option>Plus de 3 ans</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Motivation / Objectif professionnel</label>
+              <textarea placeholder="Pourquoi souhaitez-vous suivre cette formation ? Quel est votre projet professionnel ?" style="min-height:80px"></textarea>
+            </div>
+            <div class="nav-btns">
+              <button type="button" class="btn-prev" onclick="goStep(2)"><i class="fas fa-arrow-left"></i> Précédent</button>
+              <button type="button" class="btn-next" onclick="goStep(4)">Suivant <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <!-- STEP 4 : Confirmation -->
+          <div class="form-step" id="step4">
+            <div class="form-section-title"><i class="fas fa-check-circle"></i> Confirmation et soumission</div>
+            <div style="background:var(--gray-50);border-radius:14px;padding:24px;border:1.5px solid var(--gray-200);margin-bottom:24px">
+              <p style="font-size:14px;color:var(--gray-700);line-height:1.8">
+                <i class="fas fa-info-circle" style="color:var(--blue-light)"></i>
+                En soumettant ce formulaire, vous confirmez que toutes les informations fournies sont exactes et complètes. L'OGN EYANO traitera votre demande et vous contactera dans un délai de <strong>3 à 5 jours ouvrables</strong> pour confirmer votre inscription.
+              </p>
+            </div>
+            <div class="form-group">
+              <label>Documents à fournir (upload optionnel)</label>
+              <input type="file" accept=".pdf,.jpg,.jpeg,.png" style="padding:10px;border:1.5px dashed var(--gray-200);border-radius:10px;background:var(--gray-50);width:100%">
+              <small style="color:var(--gray-600);font-size:12px;margin-top:4px;display:block">Diplôme, certificat, pièce d'identité (PDF ou image, max 5MB)</small>
+            </div>
+            <div class="form-group">
+              <div style="display:flex;align-items:flex-start;gap:12px;padding:16px;background:rgba(37,99,235,0.05);border-radius:10px;border:1.5px solid rgba(37,99,235,0.15)">
+                <input type="checkbox" id="consent" style="margin-top:3px;width:16px;height:16px" required>
+                <label for="consent" style="font-size:13px;color:var(--gray-700);cursor:pointer">
+                  J'accepte que mes données personnelles soient utilisées par l'OGN EYANO et le centre de formation choisi dans le cadre de mon inscription. Je confirme que toutes les informations fournies sont exactes.
+                </label>
+              </div>
+            </div>
+            <div class="nav-btns">
+              <button type="button" class="btn-prev" onclick="goStep(3)"><i class="fas fa-arrow-left"></i> Précédent</button>
+              <button type="submit" class="btn-next"><i class="fas fa-graduation-cap"></i> Finaliser l'inscription</button>
+            </div>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="form-step" id="stepSuccess">
+            <div class="success-box">
+              <i class="fas fa-check-circle"></i>
+              <h3>Inscription soumise avec succès !</h3>
+              <p>Votre demande d'inscription a été enregistrée. Vous recevrez une confirmation dans les 3 à 5 jours ouvrables. Numéro de dossier : <strong style="color:var(--blue-light)">#EYANO-<span id="dossierNum"></span></strong></p>
+              <div style="margin-top:24px">
+                <button onclick="resetStudentForm()" class="btn-primary" style="border:none;cursor:pointer;margin:0 auto">
+                  <i class="fas fa-plus"></i> Nouvelle inscription
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag"><i class="fas fa-envelope"></i> Contactez-nous</div>
+      <h2 class="section-title">Prenez <span>Contact</span> avec nous</h2>
+      <p class="section-sub">Notre équipe est disponible pour répondre à toutes vos questions sur l'ONG EYANO et nos centres partenaires.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="fade-up">
+        <h3>Nos coordonnées</h3>
+        <p>Contactez-nous par téléphone, email ou venez nous rendre visite à notre siège à Kinshasa.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-ic"><i class="fas fa-map-marker-alt"></i></div>
+            <div><strong>Siège Social</strong><span>Kinshasa, République Démocratique du Congo</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-ic"><i class="fas fa-phone"></i></div>
+            <div><strong>Téléphone</strong><span>+243 997 000 000 · +243 812 000 000</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-ic"><i class="fas fa-envelope"></i></div>
+            <div><strong>Email Officiel</strong><span>contact@eyano.org · direction@eyano.org</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-ic"><i class="fab fa-whatsapp"></i></div>
+            <div><strong>WhatsApp</strong><span>+243 997 000 000</span></div>
+          </div>
+        </div>
+        <div class="socials" style="margin-top:24px">
+          <a href="#" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn wa"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-btn yt"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn tt"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="social-btn li"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="contact-form fade-up delay-1">
+        <h3><i class="fas fa-paper-plane" style="color:var(--blue-light)"></i> Envoyer un message</h3>
+        <form onsubmit="submitContact(event)">
+          <div class="form-row">
+            <div class="form-group"><label>Prénom & Nom *</label><input type="text" placeholder="Votre nom complet" required></div>
+            <div class="form-group"><label>Email *</label><input type="email" placeholder="votre@email.com" required></div>
+          </div>
+          <div class="form-group"><label>Téléphone</label><input type="tel" placeholder="+243 9XX XXX XXX"></div>
+          <div class="form-group">
+            <label>Sujet *</label>
+            <select required>
+              <option value="">Sélectionner un sujet...</option>
+              <option>Information générale</option><option>Inscription d'un centre</option>
+              <option>Partenariat institutionnel</option><option>Agréments et documents</option>
+              <option>Presse et médias</option><option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message *</label><textarea placeholder="Votre message..." style="min-height:120px" required></textarea></div>
+          <button type="submit" class="btn-primary form-submit"><i class="fas fa-paper-plane"></i> Envoyer le message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon">OE</div>
+          <div class="logo-text">
+            <strong>OGN EYANO</strong>
+            <span>Formation Professionnelle · RDC</span>
+          </div>
+        </a>
+        <p class="footer-desc">
+          Organisation Non Gouvernementale conventionnée et agréée par l'État congolais. Nous accompagnons plus de 490 centres de formation professionnelle dans toutes les 26 provinces de la RDC.
+        </p>
+        <div class="socials">
+          <a href="#" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-btn wa"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-btn yt"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-btn tt"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="social-btn li"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#accueil"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+          <li><a href="#apropos"><i class="fas fa-chevron-right"></i> À Propos</a></li>
+          <li><a href="#centres"><i class="fas fa-chevron-right"></i> Centres</a></li>
+          <li><a href="#provinces"><i class="fas fa-chevron-right"></i> Provinces</a></li>
+          <li><a href="#actualites"><i class="fas fa-chevron-right"></i> Actualités</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul class="footer-links">
+          <li><a href="#inscription"><i class="fas fa-chevron-right"></i> Inscrire un centre</a></li>
+          <li><a href="#centres"><i class="fas fa-chevron-right"></i> Trouver un centre</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Espace administrateur</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Documents officiels</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Espace étudiant</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> Kinshasa, RDC</a></li>
+          <li><a href="tel:+243997000000"><i class="fas fa-phone"></i> +243 997 000 000</a></li>
+          <li><a href="mailto:contact@ogneyano.cd"><i class="fas fa-envelope"></i> contact@ogneyano.cd</a></li>
+          <li><a href="mailto:direction@ogneyano.cd"><i class="fas fa-envelope"></i> direction@ogneyano.cd</a></li>
+          <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 OGN EYANO. Tous droits réservés. ONG conventionnée — République Démocratique du Congo.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Plan du site</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/243997000000" class="whatsapp-float" target="_blank" rel="noopener" title="WhatsApp OGN EYANO">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  // NAVBAR SCROLL
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.style.background = 'rgba(15,35,71,0.99)';
+    } else {
+      navbar.style.background = 'rgba(15,35,71,0.97)';
+    }
+    // Scroll top button
+    const st = document.getElementById('scrollTop');
+    if (window.scrollY > 400) st.classList.add('visible');
+    else st.classList.remove('visible');
+  });
+
+  // MOBILE MENU
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu');
+    m.classList.toggle('open');
+  }
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+  // COUNTER ANIMATION
+  function animateCounter(id, target, suffix) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    let start = 0;
+    const duration = 2000;
+    const step = Math.ceil(target / (duration / 16));
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { start = target; clearInterval(timer); }
+      el.textContent = start + (suffix || '');
+    }, 16);
+  }
+
+  // INTERSECTION OBSERVER for animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // STATS counter trigger
+  let statsAnimated = false;
+  const statsSection = document.querySelector('.stats-section');
+  const statsObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !statsAnimated) {
+      statsAnimated = true;
+      animateCounter('stat1', 490);
+      animateCounter('stat2', 26);
+      animateCounter('stat3', 15);
+      animateCounter('stat4', 10);
+    }
+  }, { threshold: 0.3 });
+  if (statsSection) statsObserver.observe(statsSection);
+
+  // SEARCH
+  function searchCentres() {
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    const prov = document.getElementById('provinceFilter').value.toLowerCase();
+    const dom = document.getElementById('domaineFilter').value.toLowerCase();
+    const cards = document.querySelectorAll('.centre-card');
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      const matchQ = !q || text.includes(q);
+      const matchP = !prov || text.includes(prov);
+      const matchD = !dom || text.includes(dom);
+      card.style.display = (matchQ && matchP && matchD) ? 'block' : 'none';
+    });
+  }
+  document.getElementById('searchInput').addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') searchCentres();
+  });
+
+  // FORM SUBMIT
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.innerHTML = '<i class="fas fa-check-circle"></i> Demande envoyée avec succès !';
+    btn.style.background = 'linear-gradient(135deg,#16a34a,#22c55e)';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Soumettre la demande d\'inscription';
+      btn.style.background = '';
+      e.target.reset();
+    }, 4000);
+  }
+
+  function submitContact(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.innerHTML = '<i class="fas fa-check-circle"></i> Message envoyé avec succès !';
+    btn.style.background = 'linear-gradient(135deg,#16a34a,#22c55e)';
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
+      btn.style.background = '';
+      e.target.reset();
+    }, 4000);
+  }
+
+  // COPY EMAIL
+  function copyEmail(email, el) {
+    navigator.clipboard.writeText(email).then(() => {
+      el.innerHTML = '<i class="fas fa-check"></i> Copié !';
+      el.style.color = 'var(--green)';
+      setTimeout(() => { el.innerHTML = '<i class="fas fa-copy"></i> Copier'; el.style.color = ''; }, 2000);
+    });
+  }
+
+  // EMAIL PREVIEW LIVE
+  function updateEmailPreview() {
+    const prefix = document.getElementById('emailPrefix').value.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-\.]/g,'');
+    const preview = document.getElementById('emailLivePreview');
+    preview.textContent = prefix ? prefix + '@eyano.org' : 'votre-identifiant@eyano.org';
+  }
+
+  function submitEmail(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.innerHTML = '<i class="fas fa-check-circle"></i> Demande envoyée !';
+    btn.style.background = 'linear-gradient(135deg,#16a34a,#22c55e)';
+    setTimeout(() => { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Soumettre la demande'; btn.style.background = ''; e.target.reset(); updateEmailPreview(); }, 4000);
+  }
+
+  // CENTRES PAR PROVINCE (données d'exemple)
+  const centresParProvince = {
+    'Kinshasa': ['CFP Polytechnique de Kinshasa','École des Métiers de Kinshasa','Institut Technique Industriel','Centre de Formation Lemba','CFP Kintambo','Institut des Arts et Métiers'],
+    'Nord-Kivu': ['ISAM Goma','Centre Technique de Butembo','CFP Rutshuru','Institut Professionnel de Beni','École des Métiers de Goma'],
+    'Haut-Katanga': ['CTI Katanga Lubumbashi','Institut Technique Elisabethville','CFP Likasi','École Professionnelle de Kolwezi'],
+    'Kongo Central': ['ENTM Matadi','CFP Boma','Institut Technique de Muanda','École des Métiers de Mbanza-Ngungu'],
+    'Ituri': ['IFPI Bunia','CFP Bunia','Institut Professionnel de Mahagi'],
+    'Sud-Kivu': ['CFP Bukavu','Institut des Métiers de Uvira','École Technique Kabare'],
+    'Équateur': ['CAP Mbandaka','CFP Gemena','Institut Professionnel Ingende'],
+    'Maniema': ['CFP Kindu','Institut Technique de Kibombo'],
+  };
+
+  function updateCentres() {
+    const prov = document.getElementById('studentProvince').value;
+    const sel = document.getElementById('centreSelect');
+    sel.innerHTML = '<option value="">-- Choisir un centre --</option>';
+    const list = centresParProvince[prov] || [];
+    list.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o); });
+    if (!list.length) { const o = document.createElement('option'); o.textContent = '-- Tapez le nom du centre manuellement --'; o.disabled = true; sel.appendChild(o); }
+  }
+
+  function selectCentre() {
+    const val = document.getElementById('centreSelect').value;
+    if (val) document.getElementById('centreName').value = val;
+  }
+
+  // FILIERE TAG SELECTION
+  function selectFiliereTag(value) {
+    document.querySelectorAll('.filiere-tag').forEach(t => t.classList.remove('selected'));
+    const tags = document.querySelectorAll('.filiere-tag');
+    tags.forEach(t => { if (t.textContent.includes(value.split(' ')[0])) t.classList.add('selected'); });
+    const sel = document.getElementById('filiereSelect');
+    if (sel) { for (let o of sel.options) { if (o.value === value) { sel.value = value; break; } } }
+  }
+
+  // STUDENT FORM STEPS
+  let currentStep = 1;
+  function goStep(n) {
+    document.getElementById('step' + currentStep).classList.remove('active');
+    document.getElementById('step' + n).classList.add('active');
+    // Update dots
+    for (let i = 1; i <= 4; i++) {
+      const dot = document.getElementById('sdot' + i);
+      if (i < n) { dot.classList.add('done'); dot.classList.remove('active'); dot.innerHTML = '<i class="fas fa-check" style="font-size:12px"></i>'; }
+      else if (i === n) { dot.classList.add('active'); dot.classList.remove('done'); dot.textContent = i; }
+      else { dot.classList.remove('active','done'); dot.textContent = i; }
+    }
+    for (let i = 1; i <= 3; i++) {
+      const line = document.getElementById('sline' + i);
+      if (line) line.classList.toggle('done', i < n);
+    }
+    currentStep = n;
+    window.scrollTo({ top: document.getElementById('etudiants').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function submitStudent(e) {
+    e.preventDefault();
+    const num = Math.floor(Math.random() * 90000) + 10000;
+    document.getElementById('dossierNum').textContent = num;
+    document.getElementById('step4').classList.remove('active');
+    document.getElementById('stepSuccess').classList.add('active');
+    for (let i = 1; i <= 4; i++) {
+      const dot = document.getElementById('sdot' + i);
+      dot.classList.add('done'); dot.classList.remove('active');
+      dot.innerHTML = '<i class="fas fa-check" style="font-size:12px"></i>';
+    }
+    for (let i = 1; i <= 3; i++) { const l = document.getElementById('sline' + i); if (l) l.classList.add('done'); }
+  }
+
+  function resetStudentForm() {
+    document.getElementById('stepSuccess').classList.remove('active');
+    document.getElementById('studentForm').reset();
+    currentStep = 1;
+    goStep(1);
+  }
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
