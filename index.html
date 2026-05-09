@@ -1945,8 +1945,33 @@
   });
 
   // FORM SUBMIT
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyOOfXkY49nyvTEbW5Nnu8w0Nnes2AiGGxz1er-RvtmgqC8HjuZAGB5cd1DcHsMtD2D5w/exec';
+
+  function sendToSheets(data) {
+    fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+  }
+
   function submitForm(e) {
     e.preventDefault();
+    const fields = e.target.querySelectorAll('input,select,textarea');
+    const data = { type: 'Inscription Centre' };
+    fields.forEach(f => { if (f.name) data[f.name] = f.value; });
+    const inputs = e.target.querySelectorAll('input,select,textarea');
+    data.nom = inputs[0]?.value || '';
+    data.numero_agrement = inputs[1]?.value || '';
+    data.province = inputs[2]?.value || '';
+    data.ville = inputs[3]?.value || '';
+    data.responsable = inputs[4]?.value || '';
+    data.telephone = inputs[5]?.value || '';
+    data.email = inputs[6]?.value || '';
+    data.filieres = inputs[7]?.value || '';
+    data.type = 'Inscription Centre';
+    sendToSheets(data);
     const btn = e.target.querySelector('button[type=submit]');
     btn.innerHTML = '<i class="fas fa-check-circle"></i> Demande envoyée avec succès !';
     btn.style.background = 'linear-gradient(135deg,#16a34a,#22c55e)';
@@ -1959,6 +1984,16 @@
 
   function submitContact(e) {
     e.preventDefault();
+    const inputs = e.target.querySelectorAll('input,select,textarea');
+    const data = {
+      type: 'Message Contact',
+      nom: inputs[0]?.value || '',
+      email: inputs[1]?.value || '',
+      telephone: inputs[2]?.value || '',
+      sujet: inputs[3]?.value || '',
+      message: inputs[4]?.value || ''
+    };
+    sendToSheets(data);
     const btn = e.target.querySelector('button[type=submit]');
     btn.innerHTML = '<i class="fas fa-check-circle"></i> Message envoyé avec succès !';
     btn.style.background = 'linear-gradient(135deg,#16a34a,#22c55e)';
@@ -2051,6 +2086,22 @@
   function submitStudent(e) {
     e.preventDefault();
     const num = Math.floor(Math.random() * 90000) + 10000;
+    const sel = document.getElementById('filiereSelect');
+    const data = {
+      type: 'Inscription Eleve',
+      nom: document.querySelector('#step1 input[placeholder="Nom de famille"]')?.value || '',
+      postnom: document.querySelector('#step1 input[placeholder="Post-nom"]')?.value || '',
+      prenom: document.querySelector('#step1 input[placeholder="Prénom"]')?.value || '',
+      telephone: document.querySelector('#step1 input[type="tel"]')?.value || '',
+      email: document.querySelector('#step1 input[type="email"]')?.value || '',
+      province: document.getElementById('studentProvince')?.value || '',
+      ville: document.querySelector('#step2 input[placeholder*="Goma"]')?.value || '',
+      centre: document.getElementById('centreName')?.value || '',
+      filiere: sel?.value || '',
+      niveau: document.querySelector('#step1 select')?.value || '',
+      dossier: '#EYANO-' + num
+    };
+    sendToSheets(data);
     document.getElementById('dossierNum').textContent = num;
     document.getElementById('step4').classList.remove('active');
     document.getElementById('stepSuccess').classList.add('active');
